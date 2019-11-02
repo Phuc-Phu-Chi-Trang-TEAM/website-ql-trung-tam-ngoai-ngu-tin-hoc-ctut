@@ -1,111 +1,42 @@
-<!DOCTYPE HTML>
-<html>
-<head>
+@extends('master-layout');
+@section('content')
+<div id="mainContent">
+	<div class="group-box">
+		<div align="center">
+		<div class="title">Thông báo</div>
 		
-	<title>My website</title>
-	<meta charset="utf-8"> 
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />	
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-ui-1.10.2.custom.js"></script>
-	<link rel="stylesheet" 	href="assets/css/ui-lightness/jquery-ui-1.10.2.custom.css" />
+		 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
+		 
+		 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
+		 <p>
+		 </div>
+	</div>
 
-    
-</head>
-<body>
-	<div id="pageWrapper">
-		<div id="header">
-			
-			<h1 id="siteTitle"> Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học </h1>
-				
-		</div> 
-		<!-- End of header -->
+	<div class="group-box">
+		<div align="center">
+		<div class="title">Thông báo</div>
 		
-		<div id="nav"> 
-		<div  id="menu" > 
-			<a href="">Trang chủ</a> |  
-			<a href="">Giới thiệu</a>	|
-			<a href="">Tin tức - Sự kiện</a>  | 
-			<a href="">Quản lý trung tâm Ngoại ngữ - Tin học</a>  | 
-			<a href="">Tuyển sinh</a>		 
-		</div>		 
-		</div>
-		 <!-- End of Navigation menu --> 
-		
-		<div id="contentWrapper" > 
-			<div id="leftSide" > 
-				<div class="group-box" id="danhmuc"> 
-						<div class="title">DANH MỤC</div>  
-						<div class="group-box-content">
-							<ul>								
-								<li> <a href="">Đăng nhập</a> </li>
-								<li> <a href="">Quản lý người dùng</a> </li>
-								<li> <a href="">Quản lý khóa học</a> </li>
-								<li> <a href="">Quản lý lớp học</a> </li>
-								<li> <a href="">Quản lý buổi học</a> </li>
-								<li> <a href="">Quản lý giáo viên</a> </li>
-							</ul>						
-						</div>						
-				</div>
-				<div class="group-box"> 
-						<div class="title">Menu</div> 
-						<div class="group-box-content">
-						<ul>							
-							<li> <a href="">Quản lý phòng học</a> </li>
-							<li> <a href="">Quản lý chứng chỉ</a> </li>
-							<li> <a href="">Phâncông giảng dạy</a> </li>
-							<li> <a href="">Xem lịch giảng</a> </li>
-							<li> <a href="">Đăng ký học viên</a> </li>
-						</ul>						
-						</div>						
-				</div>				 
-			</div> <!-- End of Left Side -->
-	<div id="mainContent">
+		 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
+		 
+		 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
+		 
+		 
+		 <p>
+		 </div>
+	</div>
+
+	<div id="hello">
 		<div class="group-box">
-			<div align="center">
-			<div class="title">Thông báo</div>
-			
-			 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
-			 
-			 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
-			 <p>
-			 </div>
-		</div>
-
-		<div class="group-box">
-			<div align="center">
-			<div class="title">Thông báo</div>
-			
-			 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
-			 
-			 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
-			 
-			 
-			 <p>
-			 </div>
-		</div>
-
-		<div id="hello">
-			<div class="group-box">
-			<div align="center">
-			<div class="title">Thông báo </div>
-			
-			 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
-			 
-			 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
-			 <p>
-			 </div>
-		</div>
-			
-		</div>
-	</div>	<!-- End of Main Content -->
-</div> <!-- End of Content Wrapper -->
-	<div id="footer"> 
-	Copyright &copy; 2013
-	</div>	
-</div> <!-- End of pageWrapper -->
-</body>
-</html>
+		<div align="center">
+		<div class="title">Thông báo </div>
+		
+		 <h3>Chào mừng bạn đến với Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học.</h3> 
+		 
+		 Các chức năng đang được cập nhật, xin vui lòng quay lại sau. 
+		 <p>
+		 </div>
+	</div>
+		
+	</div>
+</div>	<!-- End of Main Content -->
+@endsection;
