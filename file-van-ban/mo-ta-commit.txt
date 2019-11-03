@@ -9,8 +9,22 @@ Noi dung da thuc hien tren du an:
 	---Up 2 module front end phan "Dang nhap" va "Trang chu"
 -----------------------------------------------------------------
 Lan 2:
-Ten commit:
+Ten commit: 
 Nguoi thuc hien:
-Thoi gian:
+Thoi gian: 
 Noi dung da thuc hien tren du an:
+-----------------------------------------------------------------
+Lan 3:
+Ten commit: Backup lan 3 - Them giao dien
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 09:30 02/11/2019
+Noi dung da thuc hien tren du an:
+	---Them 6 file giao dien.
+-----------------------------------------------------------------
+Lan 4:
+Ten commit: bakup lan 4
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 12:25 03/11/2019
+Noi dung da thuc hien tren du an:
+	---Them các file controller và model
 -----------------------------------------------------------------
