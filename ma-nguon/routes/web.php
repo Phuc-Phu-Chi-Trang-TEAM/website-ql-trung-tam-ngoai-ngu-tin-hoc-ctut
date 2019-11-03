@@ -23,9 +23,7 @@ Route::get('quan-ly-nguoi-dung', function () {
     return view('quan-ly-nguoi-dung');
 });
 
-Route::get('quan-ly-phong-hoc', function () {
-    return view('quan-ly-phong-hoc');
-});
+Route::get('quan-ly-phong-hoc', 'PhongHocController@layDanhSachPhongHoc');
 
 Route::get('quan-ly-chung-chi', function () {
     return view('quan-ly-chung-chi');
@@ -42,3 +40,5 @@ Route::get('dang-ky-hoc-vien', function () {
 Route::get('phan-cong-giang-day', function () {
     return view('phan-cong-giang-day');
 });
+
+Route::get('quan-ly-buoi-hoc', 'BuoiHocController@layDanhSachBuoiHoc');

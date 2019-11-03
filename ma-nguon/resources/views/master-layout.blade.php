@@ -2,7 +2,7 @@
 <html>
 <head>
 		
-	<title>My website</title>
+	<title>Trung tâm Ngoại ngữ và Tin học CTUT</title>
 	<meta charset="utf-8"> 
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -69,12 +69,12 @@
 						<ul>							
 							<li> <a href="">Quản lý phòng học</a> </li>
 							<li> <a href="">Quản lý chứng chỉ</a> </li>
-							<li> <a href="">Phâncông giảng dạy</a> </li>
+							<li> <a href="">Phân công giảng dạy</a> </li>
 							<li> <a href="">Xem lịch giảng</a> </li>
 							<li> <a href="">Đăng ký học viên</a> </li>
 						</ul>						
 						</div>						
-				</div>				 
+				</div>
             </div> <!-- End of Left Side -->
             
     {{-- content --}}

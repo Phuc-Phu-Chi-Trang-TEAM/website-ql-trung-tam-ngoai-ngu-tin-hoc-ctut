@@ -22,7 +22,7 @@
 		<div id="header">
 			
 			<h1 id="siteTitle"> Hệ Thống Quản lý trung tâm Ngoại ngữ - Tin học </h1>
-				
+
 		</div> 
 		<!-- End of header -->
 		
