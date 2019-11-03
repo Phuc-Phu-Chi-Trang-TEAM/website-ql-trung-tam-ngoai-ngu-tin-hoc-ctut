@@ -38,4 +38,5 @@ class User extends Authenticatable
     ];
 
     protected $table = 'nguoi_dung';
+    public $timestampt = false;
 }

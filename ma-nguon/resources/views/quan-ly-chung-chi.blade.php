@@ -45,7 +45,7 @@
         </form>
             <div class="group-box">
                 <div align="center">
-                    <div class="title ui-widget-header ui-corner-all">Danh sách phòng học</div>
+                    <div class="title ui-widget-header ui-corner-all">Danh sách chứng chỉ</div>
                         <div class="col-sm-12 danhsach" style="font-size:16px;font-family:arial;">
                             <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" border="1">
                                 <thead>
@@ -57,27 +57,15 @@
                                         <th class="sorting"  style="width: 126px;">Edit</th></tr>
                                 </thead>
                             <tbody>                           
-                                <tr class="gradeC odd" align="center" role="row">
-                                    <td class="sorting_1">111001</td>
-                                    <td>444,000VNĐ</td>
-                                    <td>KTPM0116</td>
-                                    <td class="center"><i class="icon-trash"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
-                                <tr class="gradeX even" align="center" role="row">
-                                    <td class="sorting_1">222002</td>
-                                    <td>222,000VNĐ</td>
-                                    <td>None</td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
-                                <tr class="gradeX even" align="center" role="row">
-                                    <td class="sorting_1">333003</td>
-                                    <td>666,000VNĐ</td>
-                                    <td>HTTT0116</td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
+                                @foreach ($ds_chung_chi as $dscc)
+                                    <tr class="gradeC odd" align="center" role="row">
+                                        <td class="sorting_1">{{$dscc->Ma_chung_chi}}</td>
+										<td>{{$dscc->Gia_tien}}</td>
+                                        <td>{{$dscc->Ghi_chu}}</td>
+                                        <td class="center"><i class="icon-trash"></i><a href="#">Delete</a></td>
+                                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                    </tr>
+                                @endforeach 
                              </tbody>
                             </table>
                         </div>

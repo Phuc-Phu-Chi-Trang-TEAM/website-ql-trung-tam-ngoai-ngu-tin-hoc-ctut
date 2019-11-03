@@ -36,6 +36,7 @@
                         <div class="tt">
                             <td colspan="2" align="center">
                                 <input type="submit" name="xn" class="nut" value="Thêm">
+                                <input type="submit" name="xn" class="nut" value="Lưu">
                                 <input type="reset" name="huy" class="nut" value="Hủy Bỏ"/>
                             </td>
                         </div>

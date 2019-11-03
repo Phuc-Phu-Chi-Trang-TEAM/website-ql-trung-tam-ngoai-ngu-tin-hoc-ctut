@@ -8,15 +8,7 @@
             <div id="nen">
               <div id="dk">
                 <div id="nd">
-                  <table width="600px">			          
-                    <tr>
-                        <div class="tt">
-                            <td widht="200"><label for="nn">Mã Học Viên </label></td>
-                            <td width="400" ><input type="text" name="hoten" class="input1"/>
-                          </div>
-                          </td>
-                        </div>
-                    </tr>
+                  <table width="600px">
                     <tr>
                         <div class="tt">
                             <td widht="200"><label for="nn">Tên Học Viên </label></td>
@@ -75,18 +67,40 @@
                     </tr>    
                     <tr>
                         <div class="tt">
-                            <td widht="200"><label for="nn">Mã Lớp </label></td>
-                            <td width="400" ><input list="browsers" name="browser" class="browser1">
-                                <datalist id="browsers">
-                                    <option value="KTPM">
-                                    <option value="KHMT">
-                                    <option value="CĐT">
-                                    <option value="QLCN">
-                                    <option value="TOTOLINK">
-                                </datalist>
-                            </div>
-                            </td>
+                            <td widht="200" style="font-family: none;"><h2>Chọn Lớp Học</h2></td>                
                           </div>
+                          </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="tt">
+                          	<td width="200"><label for="nn">Buổi học</label></td>
+                          	<td>
+							  <select name="" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+								  <option value="">Chọn buổi học</option>
+							  </select></div>
+							</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="tt">
+                          	<td width="200"><label for="nn">Loại chứng chỉ</label></td>
+                          	<td>
+							  <select name="" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+								  <option value="">Chọn chứng chỉ</option>
+							  </select></div>
+							</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="tt">
+                          	<td width="200"><label for="nn">Lớp học</label></td>
+                          	<td>
+							  <select name="" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+								  <option value="">Chọn lớp học</option>
+							  </select></div>
+							</td>
+                        </div>
                     </tr>
                     <tr>
                         <div class="tt">
@@ -109,62 +123,28 @@
                             <table class="table table-striped table-bordered table-hover dataTable no-footer"  role="grid" aria-describedby="dataTables-example_info" border="1" id="t1">
                                 <thead>
                                     <tr align="center" role="row">
-                                        <th class="sorting_desc" style="width: 300px;">Mã Học Viên</th>
-                                        <th class="sorting"  style="width: 300px;">Tên Học Viên</th>
+                                        <th class="sorting_desc" style="width: 160px;">Mã Học Viên</th>
+                                        <th class="sorting"  style="width: 160px;">Tên Học Viên</th>
                                         <th class="sorting"  style="width: 160px;">Ngày Sinh</th>
-                                        <th class="sorting"  style="width: 160px;">Nơi Sinh</th>
                                         <th class="sorting"  style="width: 160px;">CMND</th>
-                                        <th class="sorting"  style="width: 160px;">Địa Chỉ</th>
                                         <th class="sorting"  style="width: 160px;">Điện Thoại</th>
-                                        <th class="sorting"  style="width: 160px;">Email</th>
-                                        <th class="sorting"  style="width: 160px;">Ghi Chú</th>
                                         <th class="sorting"  style="width: 160px;">Mã Lớp</th>
                                         <th class="sorting"  style="width: 160px;">Delete</th>
                                         <th class="sorting"  style="width: 126px;">Edit</th></tr>
                                 </thead>
                             <tbody>                           
-                                <tr class="gradeC odd" align="center" role="row">
-                                    <td class="sorting_1">1</td>
-                                    <td>Nguyễn Văn A</td>						               
-                                    <td>20/03/1978</td>
-                                    <td>An Giang</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="center"><i class="icon-trash"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
-                                <tr class="gradeX even" align="center" role="row">
-                                    <td class="sorting_1">2</td>
-                                    <td>Trần Văn B</td>
-                                    <td>24/12/1978</td>
-                                    <td>Cần Thơ</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
-                                <tr class="gradeX even" align="center" role="row">
-                                    <td class="sorting_1">3</td>
-                                    <td>Lê Thị Cẩm C</td>
-                                    <td>19/05/1978</td>
-                                    <td>Đồng Tháp</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                                </tr>
+                                @foreach ($ds_hoc_vien as $dshv)
+                                    <tr class="gradeC odd" align="center" role="row">
+                                        <td class="sorting_1">{{$dshv->Ma_hoc_vien}}</td>
+										<td>{{$dshv->Ten_hoc_vien}}</td>
+                                        <td>{{$dshv->Ngay_sinh}}</td>
+                                        <td>{{$dshv->CMND}}</td>
+                                        <td>{{$dshv->Dien_thoai}}</td>
+                                        <td>{{$dshv->Ma_lop}}</td>
+                                        <td class="center"><i class="icon-trash"></i><a href="#">Delete</a></td>
+                                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                    </tr>
+                                @endforeach 
                              </tbody>
                             </table>
                         </div>

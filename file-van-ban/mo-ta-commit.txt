@@ -28,11 +28,19 @@ Thoi gian: 12:25 03/11/2019
 Noi dung da thuc hien tren du an:
 	---Them các file controller và model
 -----------------------------------------------------------------
-Lan 4:
+Lan 5:
 Ten commit: bakup lan 5
 Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 16:40 03/11/2019
 Noi dung da thuc hien tren du an:
 	---Bo sung ham getAll cho mot so file controller.
 	---do du lieu ra bang cho file quan-ly-phong-hoc.blade.php và quan-ly-buoi-hoc.balde.php
+-----------------------------------------------------------------
+Lan 6:
+Ten commit: bakup lan 6
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 22:20 03/11/2019
+Noi dung da thuc hien tren du an:
+	---Bo sung mot so giao dien
+	---Do du lieu cho cac giao dien gan hoan thanh
 -----------------------------------------------------------------

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LopHocModel;
 
 class LopHocController extends Controller
 {
