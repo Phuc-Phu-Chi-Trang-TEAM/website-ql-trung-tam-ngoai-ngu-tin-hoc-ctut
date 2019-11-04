@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class LopHocModel extends Model
 {
     protected $table = 'lop_hoc';
-    public $timestampt = false;
+    public $timestamps = false;
 }

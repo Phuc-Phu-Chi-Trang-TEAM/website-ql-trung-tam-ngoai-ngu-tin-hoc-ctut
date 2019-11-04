@@ -44,3 +44,11 @@ Noi dung da thuc hien tren du an:
 	---Bo sung mot so giao dien
 	---Do du lieu cho cac giao dien gan hoan thanh
 -----------------------------------------------------------------
+Lan 7:
+Ten commit: bakup lan 7
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 22:50 04/11/2019
+Noi dung da thuc hien tren du an:
+	---Thay doi cau truc mot so bang trong co so du lieu (cho primary key tu dong tang)
+	---Hoan thanh chuc nang them va sua cua module quan ly phong hoc
+-----------------------------------------------------------------

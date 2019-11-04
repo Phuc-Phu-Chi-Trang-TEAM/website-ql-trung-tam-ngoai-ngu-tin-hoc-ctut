@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class GiangDayModel extends Model
 {
     protected $table = 'giang_day';
-    public $timestampt = false;
+    public $timestamps = false;
 }

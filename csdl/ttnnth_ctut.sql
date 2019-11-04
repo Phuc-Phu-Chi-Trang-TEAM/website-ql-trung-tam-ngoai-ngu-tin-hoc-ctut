@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2019 lúc 05:24 AM
+-- Thời gian đã tạo: Th10 04, 2019 lúc 04:42 PM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -32,6 +32,14 @@ CREATE TABLE `buoi_hoc` (
   `Ma_buoi_hoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Ghi_chu` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `buoi_hoc`
+--
+
+INSERT INTO `buoi_hoc` (`Ma_buoi_hoc`, `Ghi_chu`) VALUES
+('CH', 'Chiều'),
+('SA', 'Sáng');
 
 -- --------------------------------------------------------
 
@@ -74,7 +82,7 @@ CREATE TABLE `giang_day` (
 --
 
 CREATE TABLE `giao_vien` (
-  `Ma_giao_vien` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_giao_vien` int(11) NOT NULL,
   `Ten_giao_vien` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Ngay_sinh` datetime DEFAULT NULL,
   `Noi_sinh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -116,7 +124,7 @@ CREATE TABLE `hoc_phong` (
 --
 
 CREATE TABLE `hoc_vien` (
-  `Ma_hoc_vien` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_hoc_vien` int(11) NOT NULL,
   `Ten_hoc_vien` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Ngay_sinh` datetime DEFAULT NULL,
   `Noi_sinh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -136,7 +144,7 @@ CREATE TABLE `hoc_vien` (
 --
 
 CREATE TABLE `khoa_hoc` (
-  `Ma_khoa_hoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_khoa_hoc` int(11) NOT NULL,
   `Ten_khoa_hoc` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Ghi_chu` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -148,7 +156,7 @@ CREATE TABLE `khoa_hoc` (
 --
 
 CREATE TABLE `lop_hoc` (
-  `Ma_lop_hoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_lop_hoc` int(11) NOT NULL,
   `Ten_lop_hoc` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `So_luong_hoc_vien` int(11) DEFAULT NULL,
   `Ghi_chu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -176,10 +184,17 @@ CREATE TABLE `nguoi_dung` (
 --
 
 CREATE TABLE `phong_hoc` (
-  `Ma_phong_hoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_phong_hoc` int(11) NOT NULL,
   `Ten_phong_hoc` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Ghi_chu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `phong_hoc`
+--
+
+INSERT INTO `phong_hoc` (`Ma_phong_hoc`, `Ten_phong_hoc`, `Ghi_chu`) VALUES
+(1, 'C101', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -256,6 +271,40 @@ ALTER TABLE `nguoi_dung`
 --
 ALTER TABLE `phong_hoc`
   ADD PRIMARY KEY (`Ma_phong_hoc`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `giao_vien`
+--
+ALTER TABLE `giao_vien`
+  MODIFY `Ma_giao_vien` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `hoc_vien`
+--
+ALTER TABLE `hoc_vien`
+  MODIFY `Ma_hoc_vien` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `khoa_hoc`
+--
+ALTER TABLE `khoa_hoc`
+  MODIFY `Ma_khoa_hoc` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lop_hoc`
+--
+ALTER TABLE `lop_hoc`
+  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `phong_hoc`
+--
+ALTER TABLE `phong_hoc`
+  MODIFY `Ma_phong_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,6 +6,7 @@
 	<meta charset="utf-8"> 
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<base href="{{asset('')}}">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />	
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script type="text/javascript" src="js/jquery.js"></script>

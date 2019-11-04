@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Glassy Login Form A Responsive Widget Template :: w3layouts</title>
+<title>Trung tâm ngoại ngữ và tin học CTUT</title>
 <!-- Meta tag Keywords -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,35 +27,35 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body>
 		<!--header-->
 		<div class="header-w3l">
-			<h1>Glassy Login Form</h1>
+			<h1>Trung tâm ngoại ngữ - tin học CTUT</h1>
 		</div>
 		<!--//header-->
 		<!--main-->
 		<div class="main-w3layouts-agileinfo">
 	           <!--form-stars-here-->
 						<div class="wthree-form">
-							<h2>Fill out the form below to login</h2>
+							<h2>Đăng nhập</h2>
 							<form action="#" method="post">
 								<div class="form-sub-w3">
-									<input type="text" name="Username" placeholder="Username " required="" />
+									<input type="text" name="Username" placeholder="Tài khoản " required="" />
 								<div class="icon-w3">
 									<i class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								</div>
 								<div class="form-sub-w3">
-									<input type="password" name="Password" placeholder="Password" required="" />
+									<input type="password" name="Password" placeholder="Mật khẩu" required="" />
 								<div class="icon-w3">
 									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 								</div>
 								</div>
 								<label class="anim">
 								<input type="checkbox" class="checkbox">
-									<span>Remember Me</span> 
-									<a href="#">Forgot Password</a>
+									<span>Nhớ mật khẩu</span> 
+									<a href="#">Quên mật khẩu</a>
 								</label> 
 								<div class="clear"></div>
 								<div class="submit-agileits">
-									<input type="submit" value="Login">
+									<input type="submit" value="Dăng nhập">
 								</div>
 							</form>
 

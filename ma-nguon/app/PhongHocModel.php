@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class PhongHocModel extends Model
 {
     protected $table = 'phong_hoc';
-    public $timestampt = false;
+    protected $primaryKey = 'Ma_phong_hoc';
+    public $timestamps = false;
 }
