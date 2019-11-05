@@ -52,3 +52,11 @@ Noi dung da thuc hien tren du an:
 	---Thay doi cau truc mot so bang trong co so du lieu (cho primary key tu dong tang)
 	---Hoan thanh chuc nang them va sua cua module quan ly phong hoc
 -----------------------------------------------------------------
+Lan 8:
+Ten commit: bakup lan 8
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 15:38 05/11/2019
+Noi dung da thuc hien tren du an:
+	---Thay doi cau truc bang chung_chi
+	---Hoan thanh chuc nang them va sua cua module quan ly chung chi
+-----------------------------------------------------------------

@@ -7,12 +7,12 @@ use App\PhongHocModel;
 
 class PhongHocController extends Controller
 {
-    public function layDanhSachPhongHoc(){
+    protected function layDanhSachPhongHoc(){
         $ds_phong_hoc = PhongHocModel::all();
         return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc]);
     }
 
-    public function batSuKienClickButton(Request $request){
+    protected function batSuKienClickButton(Request $request){
         if ($request->btn_them){
             $this->themPhongHoc($request);
             return redirect('quan-ly-phong-hoc')->with('thongbao','Thêm thành công');
@@ -23,7 +23,7 @@ class PhongHocController extends Controller
         }
     }
 
-    public function themPhongHoc($request){
+    protected function themPhongHoc($request){
         $this->validate(
             $request,
             ['ten_phong_hoc'=>'required'],
@@ -36,13 +36,13 @@ class PhongHocController extends Controller
         $phong_hoc->save();
     }
     
-    public function layThongTinPhongHoc($id){
+    protected function layThongTinPhongHoc($id){
         $thong_tin_phong_hoc = PhongHocModel::where('Ma_phong_hoc',$id)->get();
         $ds_phong_hoc = PhongHocModel::all();
         return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'thong_tin_phong_hoc'=>$thong_tin_phong_hoc]);
     }
 
-    public function capNhatThongTinPhongHoc($request){
+    protected function capNhatThongTinPhongHoc($request){
         $this->validate(
             $request,
             ['ten_phong_hoc'=>'required'],

@@ -7,8 +7,53 @@ use App\ChungChiModel;
 
 class ChungChiController extends Controller
 {
-    public function layDanhSachChungChi(){
+    protected function layDanhSachChungChi(){
         $ds_chung_chi = ChungChiModel::all();
         return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi]);
+    }
+
+    protected function batSuKienClickButton(Request $request){
+        if ($request->btn_them){
+            $this->themChungChi($request);
+            return redirect('quan-ly-chung-chi')->with('thongbao','Thêm thành công');
+        }
+        if ($request->btn_luu){
+            $this->capNhatThongTinChungChi($request);
+            return redirect('quan-ly-chung-chi')->with('thongbao','Cập nhật thông tin chứng chỉ thành công');
+        }
+    }
+
+    protected function themChungChi($request){
+        $this->validate(
+            $request,
+            ['ten_chung_chi'=>'required'],
+            ['ten_chung_chi.required'=>"Bạn chưa nhập tên chứng chỉ"]
+        );
+
+        $chung_chi = new ChungChiModel;
+        $chung_chi->ten_chung_chi = $request->ten_chung_chi;
+        $chung_chi->gia_tien = $request->gia_tien;
+        $chung_chi->ghi_chu = $request->ghi_chu;
+        $chung_chi->save();
+    }
+    
+    protected function layThongTinChungChi($id){
+        $thong_tin_chung_chi = ChungChiModel::where('Ma_chung_chi',$id)->get();
+        $ds_chung_chi = ChungChiModel::all();
+        return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi'=>$thong_tin_chung_chi]);
+    }
+
+    protected function capNhatThongTinChungChi($request){
+        $this->validate(
+            $request,
+            ['ten_chung_chi'=>'required'],
+            ['ten_chung_chi.required'=>"Bạn chưa nhập tên chứng chỉ"]
+        );
+
+        $chung_chi=ChungChiModel::where('Ma_chung_chi','=',$request->ma_chung_chi)->first();
+        $chung_chi->ten_chung_chi = $request->ten_chung_chi;
+        $chung_chi->gia_tien = $request->gia_tien;
+        $chung_chi->ghi_chu = $request->ghi_chu;
+        $chung_chi->save();
     }
 }

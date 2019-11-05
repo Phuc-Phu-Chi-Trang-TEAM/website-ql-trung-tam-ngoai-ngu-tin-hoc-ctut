@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2019 lúc 04:42 PM
+-- Thời gian đã tạo: Th10 05, 2019 lúc 09:36 AM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -59,10 +59,18 @@ CREATE TABLE `cham_cong` (
 --
 
 CREATE TABLE `chung_chi` (
-  `Ma_chung_chi` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_chung_chi` int(11) NOT NULL,
+  `Ten_chung_chi` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Gia_tien` float DEFAULT NULL,
   `Ghi_chu` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chung_chi`
+--
+
+INSERT INTO `chung_chi` (`Ma_chung_chi`, `Ten_chung_chi`, `Gia_tien`, `Ghi_chu`) VALUES
+(1, 'Toeic', 1500000, NULL);
 
 -- --------------------------------------------------------
 
@@ -194,7 +202,8 @@ CREATE TABLE `phong_hoc` (
 --
 
 INSERT INTO `phong_hoc` (`Ma_phong_hoc`, `Ten_phong_hoc`, `Ghi_chu`) VALUES
-(1, 'C101', NULL);
+(1, 'C101', NULL),
+(2, 'C102', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -277,6 +286,12 @@ ALTER TABLE `phong_hoc`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `chung_chi`
+--
+ALTER TABLE `chung_chi`
+  MODIFY `Ma_chung_chi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `giao_vien`
 --
 ALTER TABLE `giao_vien`
@@ -304,7 +319,7 @@ ALTER TABLE `lop_hoc`
 -- AUTO_INCREMENT cho bảng `phong_hoc`
 --
 ALTER TABLE `phong_hoc`
-  MODIFY `Ma_phong_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Ma_phong_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
