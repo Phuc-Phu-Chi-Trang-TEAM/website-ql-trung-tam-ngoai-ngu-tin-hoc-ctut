@@ -27,6 +27,7 @@ Route::get('quan-ly-nguoi-dung', 'NguoiDungController@layDanhSachNguoiDung');
 // Routes quản lý phòng học
 Route::get('quan-ly-phong-hoc', 'PhongHocController@layDanhSachPhongHoc');
 Route::get('quan-ly-phong-hoc/{id}', 'PhongHocController@layThongTinPhongHoc');
+Route::get('quan-ly-phong-hoc/delete/{id}', 'PhongHocController@layThongTinPhongHocCanXoa');
 Route::post('quan-ly-phong-hoc','PhongHocController@batSuKienClickButton');
 
 //Routes quản lý chứng chỉ

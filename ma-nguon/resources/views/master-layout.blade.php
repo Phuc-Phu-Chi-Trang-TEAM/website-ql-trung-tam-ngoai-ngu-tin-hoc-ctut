@@ -13,7 +13,6 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.js"></script>
 	<link rel="stylesheet" 	href="assets/css/ui-lightness/jquery-ui-1.10.2.custom.css" />
-
     
 </head>
 <body>
@@ -80,7 +79,7 @@
             
     {{-- content --}}
             @yield('content');
-    {{-- end content --}}
+	{{-- end content --}}
 
 </div> <!-- End of Content Wrapper -->
 	<div id="footer"> 

@@ -60,3 +60,10 @@ Noi dung da thuc hien tren du an:
 	---Thay doi cau truc bang chung_chi
 	---Hoan thanh chuc nang them va sua cua module quan ly chung chi
 -----------------------------------------------------------------
+Lan 9:
+Ten commit: bakup lan 9
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 17:06 05/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoàn thành module quản lý phòng học (thêm, sửa, xóa)
+-----------------------------------------------------------------
