@@ -74,3 +74,10 @@ Thoi gian: 17:40 05/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly chung chi (them, sua, xoa)
 -----------------------------------------------------------------
+Lan 11:
+Ten commit: bakup lan 11
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 21:05 05/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module quan ly khoa hoc (them, sua, xoa)
+-----------------------------------------------------------------

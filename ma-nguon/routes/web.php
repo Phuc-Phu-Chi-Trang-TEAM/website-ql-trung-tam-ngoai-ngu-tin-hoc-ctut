@@ -52,6 +52,9 @@ Route::get('quan-ly-buoi-hoc', 'BuoiHocController@layDanhSachBuoiHoc');
 
 //Routes quản lý khóa học
 Route::get('quan-ly-khoa-hoc', 'KhoaHocController@layDanhSachKhoaHoc');
+Route::get('quan-ly-khoa-hoc/{id}', 'KhoaHocController@layThongTinKhoaHoc');
+Route::get('quan-ly-khoa-hoc/delete/{id}', 'KhoaHocController@layThongTinKhoaHocCanXoa');
+Route::post('quan-ly-khoa-hoc','KhoaHocController@batSuKienClickButton');
 
 //Routes quản lý lớp học
 Route::get('quan-ly-lop-hoc', 'LopHocController@layDanhSachLopHoc');
