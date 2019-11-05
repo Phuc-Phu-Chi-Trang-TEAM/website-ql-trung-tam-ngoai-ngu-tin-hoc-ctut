@@ -53,7 +53,37 @@
                                     <div class="tt">
                                         <td colspan="2" align="center">
                                             <input type="submit" name="btn_luu" class="nut" value="Lưu">
-                                            <input type="reset" name="btn_huy" class="nut" value="Hủy Bỏ"/>
+                                            <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
+                                        </td>
+                                    </div>
+                                </tr>
+                            </table>
+                        @endforeach
+                    @elseif(isset($thong_tin_chung_chi_xoa))
+                        @foreach ($thong_tin_chung_chi_xoa as $ttccx)
+                            <table width="650px">
+                                <tr>
+                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa chứng chỉ này ?
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Mã Chứng Chỉ</label></td>
+                                        <td width="400" ><input type="text" name="ma_chung_chi" class="input1" value="{{$ttccx->Ma_chung_chi}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Tên Chứng Chỉ <span style="color:red">*</span></label></td>
+                                        <td width="400" ><input type="text" name="ten_chung_chi" class="input1" value="{{$ttccx->Ten_chung_chi}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td colspan="2" align="center">
+                                            <input type="submit" name="btn_xoa" class="nut" value="Xóa">
+                                            <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
                                         </td>
                                     </div>
                                 </tr>
@@ -83,7 +113,7 @@
                                     <div class="tt">
                                         <td colspan="2" align="center">
                                             <input type="submit" name="btn_them" class="nut" value="Thêm">
-                                            <input type="reset" name="btn_huy" class="nut" value="Hủy Bỏ"/>
+                                            <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
                                         </td>
                                     </div>
                                 </tr>
@@ -115,8 +145,8 @@
                                         <td>{{$dscc->Ten_chung_chi}}</td>
                                         <td>{{$dscc->Gia_tien}}</td>
                                         <td>{{$dscc->Ghi_chu}}</td>
-                                        <td class="center"><i class="icon-trash"></i><a href="quan-ly-chung-chi/"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="quan-ly-chung-chi/{{$dscc->Ma_chung_chi}}">Edit</a></td>
+                                        <td class="center"><i class="icon-trash"></i><a href="quan-ly-chung-chi/delete/{{$dscc->Ma_chung_chi}}">Xóa</a></td>
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="quan-ly-chung-chi/{{$dscc->Ma_chung_chi}}">Sửa</a></td>
                                     </tr>
                                 @endforeach
                              </tbody>

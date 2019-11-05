@@ -33,6 +33,7 @@ Route::post('quan-ly-phong-hoc','PhongHocController@batSuKienClickButton');
 //Routes quản lý chứng chỉ
 Route::get('quan-ly-chung-chi', 'ChungChiController@layDanhSachChungChi');
 Route::get('quan-ly-chung-chi/{id}', 'ChungChiController@layThongTinChungChi');
+Route::get('quan-ly-chung-chi/delete/{id}', 'ChungChiController@layThongTinChungChiCanXoa');
 Route::post('quan-ly-chung-chi','ChungChiController@batSuKienClickButton');
 
 //Routes xem lịch giảng

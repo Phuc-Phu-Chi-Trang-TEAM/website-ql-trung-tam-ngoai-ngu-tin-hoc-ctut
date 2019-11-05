@@ -21,6 +21,13 @@ class ChungChiController extends Controller
             $this->capNhatThongTinChungChi($request);
             return redirect('quan-ly-chung-chi')->with('thongbao','Cập nhật thông tin chứng chỉ thành công');
         }
+        if ($request->btn_xoa){
+            $this->xoaChungChi($request);
+            return redirect('quan-ly-chung-chi')->with('thongbao','Xóa thành công');
+        }
+        if ($request->btn_huy){
+            return redirect('quan-ly-chung-chi')->with('thongbao','Đã hủy thao tác');
+        }
     }
 
     protected function themChungChi($request){
@@ -43,6 +50,12 @@ class ChungChiController extends Controller
         return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi'=>$thong_tin_chung_chi]);
     }
 
+    protected function layThongTinChungChiCanXoa($id){
+        $thong_tin_chung_chi_xoa = ChungChiModel::where('Ma_chung_chi',$id)->get();
+        $ds_chung_chi = ChungChiModel::all();
+        return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi_xoa'=>$thong_tin_chung_chi_xoa]);
+    }
+
     protected function capNhatThongTinChungChi($request){
         $this->validate(
             $request,
@@ -55,5 +68,10 @@ class ChungChiController extends Controller
         $chung_chi->gia_tien = $request->gia_tien;
         $chung_chi->ghi_chu = $request->ghi_chu;
         $chung_chi->save();
+    }
+
+    protected function xoaChungChi($request){
+        $chung_chi=ChungChiModel::where('Ma_chung_chi','=',$request->ma_chung_chi)->first();
+        $chung_chi->delete();
     }
 }

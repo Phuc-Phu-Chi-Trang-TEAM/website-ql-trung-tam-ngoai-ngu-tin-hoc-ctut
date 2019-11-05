@@ -65,5 +65,12 @@ Ten commit: bakup lan 9
 Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 17:06 05/11/2019
 Noi dung da thuc hien tren du an:
-	---Hoàn thành module quản lý phòng học (thêm, sửa, xóa)
+	---Hoan thanh module quan ly phong hoc (them, sua, xoa)
+-----------------------------------------------------------------
+Lan 10:
+Ten commit: bakup lan 10
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 17:40 05/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module quan ly chung chi (them, sua, xoa)
 -----------------------------------------------------------------
