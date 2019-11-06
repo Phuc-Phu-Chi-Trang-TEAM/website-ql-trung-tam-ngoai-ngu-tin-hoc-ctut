@@ -72,3 +72,7 @@ Route::post('quan-ly-lop-hoc','LopHocController@batSuKienClickButton');
 
 //Routes quản lý giáo viên
 Route::get('quan-ly-giao-vien', 'GiaoVienController@layDanhSachGiaoVien');
+Route::get('quan-ly-giao-vien/{id}', 'GiaoVienController@layThongTinGiaoVien');
+Route::get('quan-ly-giao-vien/xem-chi-tiet/{id}', 'GiaoVienController@chiTietGiaoVien');
+Route::get('quan-ly-giao-vien/delete/{id}', 'GiaoVienController@layThongTinGiaoVienCanXoa');
+Route::post('quan-ly-giao-vien','GiaoVienController@batSuKienClickButton');

@@ -122,3 +122,10 @@ Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly nguoi dung (Them, sua, xoa)
 	--Thay doi cau truc mot so bang trong csdl
 -----------------------------------------------------------------
+Lan 16:
+Ten commit: bakup lan 16
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 23:01 06/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh chuc nang them, sua, xoa cua module quan ly giao vien (con chuc nang tim kiem)
+-----------------------------------------------------------------
