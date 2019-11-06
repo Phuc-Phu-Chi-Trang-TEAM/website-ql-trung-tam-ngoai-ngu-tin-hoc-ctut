@@ -49,6 +49,9 @@ Route::get('phan-cong-giang-day', 'GiangDayController@layDanhSachGiangDay');
 
 //Routes quản lý buổi học
 Route::get('quan-ly-buoi-hoc', 'BuoiHocController@layDanhSachBuoiHoc');
+Route::get('quan-ly-buoi-hoc/{id}', 'BuoiHocController@layThongTinBuoiHoc');
+Route::get('quan-ly-buoi-hoc/delete/{id}', 'BuoiHocController@layThongTinBuoiHocCanXoa');
+Route::post('quan-ly-buoi-hoc','BuoiHocController@batSuKienClickButton');
 
 //Routes quản lý khóa học
 Route::get('quan-ly-khoa-hoc', 'KhoaHocController@layDanhSachKhoaHoc');
@@ -58,6 +61,9 @@ Route::post('quan-ly-khoa-hoc','KhoaHocController@batSuKienClickButton');
 
 //Routes quản lý lớp học
 Route::get('quan-ly-lop-hoc', 'LopHocController@layDanhSachLopHoc');
+Route::get('quan-ly-lop-hoc/{id}', 'LopHocController@layThongTinLopHoc');
+Route::get('quan-ly-lop-hoc/delete/{id}', 'LopHocController@layThongTinLopHocCanXoa');
+Route::post('quan-ly-lop-hoc','LopHocController@batSuKienClickButton');
 
 //Routes quản lý giáo viên
 Route::get('quan-ly-giao-vien', 'GiaoVienController@layDanhSachGiaoVien');

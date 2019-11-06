@@ -1,3 +1,12 @@
+DANH SACH CAC MODULE DA HOAN THANH
+1. Quan ly phong hoc.
+2. Quan ly buoi hoc.
+3. Quan ly chung chi.
+4. Quan ly khoa hoc.
+
+
+
+
 DANH SACH CAC LAN PUSH DU LIEU TREN DU AN
 ----------------------------------------------------------------
 Lan 1:
@@ -80,4 +89,11 @@ Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 21:05 05/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly khoa hoc (them, sua, xoa)
+-----------------------------------------------------------------
+Lan 12:
+Ten commit: bakup lan 12
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 10:32 06/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module quan ly buoi hoc (them, sua, xoa)
 -----------------------------------------------------------------
