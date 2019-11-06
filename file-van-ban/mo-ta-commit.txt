@@ -3,6 +3,8 @@ DANH SACH CAC MODULE DA HOAN THANH
 2. Quan ly buoi hoc.
 3. Quan ly chung chi.
 4. Quan ly khoa hoc.
+5. Quan ly lop hoc.
+6. Quan ly nguoi dung.
 
 
 
@@ -111,4 +113,12 @@ Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 17:08 06/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly lop hoc (Them, sua, xoa)
+-----------------------------------------------------------------
+Lan 15:
+Ten commit: bakup lan 15
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 20:53 06/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module quan ly nguoi dung (Them, sua, xoa)
+	--Thay doi cau truc mot so bang trong csdl
 -----------------------------------------------------------------

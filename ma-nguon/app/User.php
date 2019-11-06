@@ -38,5 +38,6 @@ class User extends Authenticatable
     ];
 
     protected $table = 'nguoi_dung';
-    public $timestampt = false;
+    protected $primaryKey = 'Ma_nguoi_dung' ;
+    public $timestamps = false;
 }

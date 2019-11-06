@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 06, 2019 lúc 06:23 AM
+-- Thời gian đã tạo: Th10 06, 2019 lúc 02:52 PM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -151,7 +151,8 @@ CREATE TABLE `khoa_hoc` (
 --
 
 INSERT INTO `khoa_hoc` (`Ma_khoa_hoc`, `Ten_khoa_hoc`, `Ghi_chu`) VALUES
-(1, 'Toeic 450+', NULL);
+(1, 'Toeic 450+', NULL),
+(2, 'Toeic 550+', NULL);
 
 -- --------------------------------------------------------
 
@@ -206,15 +207,6 @@ CREATE TABLE `lop_hoc` (
   `Ma_kieu_lich_hoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `lop_hoc`
---
-
-INSERT INTO `lop_hoc` (`Ma_lop_hoc`, `Ten_lop_hoc`, `So_luong_hoc_vien`, `Ghi_chu`, `Ma_khoa_hoc`, `Ma_buoi_hoc`, `Ma_chung_chi`, `Ngay_khai_giang`, `Ngay_be_giang`, `Ma_kieu_lich_hoc`) VALUES
-(1, 'Lớp Toeic 450+ 20/11', NULL, 'Khai giảng ngày 20/11', 1, 1, 2, '0000-00-00', '0000-00-00', 0),
-(2, 'Lớp Toeic 450+ 20/11', 0, 'Khai giảng ngày 20/11', 1, NULL, 2, '0000-00-00', '0000-00-00', 0),
-(3, 'Lớp Toeic 450+ 20/11', 0, NULL, 1, 1, 2, '2019-11-10', '2019-12-10', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -222,10 +214,18 @@ INSERT INTO `lop_hoc` (`Ma_lop_hoc`, `Ten_lop_hoc`, `So_luong_hoc_vien`, `Ghi_ch
 --
 
 CREATE TABLE `nguoi_dung` (
-  `Ma_nguoi_dung` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `Mat_khau` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Quyen` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Ma_nguoi_dung` int(11) NOT NULL,
+  `Ten_dang_nhap` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Mat_khau` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Quyen` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nguoi_dung`
+--
+
+INSERT INTO `nguoi_dung` (`Ma_nguoi_dung`, `Ten_dang_nhap`, `Mat_khau`, `Quyen`) VALUES
+(1, 'nhphuc', '$2y$10$yLKn70Wfci/2x75bW64EQ.690qu3Y6ytrjieqWWpGrn6L8H7AOnnC', 'User');
 
 -- --------------------------------------------------------
 
@@ -336,7 +336,7 @@ ALTER TABLE `phong_hoc`
 -- AUTO_INCREMENT cho bảng `buoi_hoc`
 --
 ALTER TABLE `buoi_hoc`
-  MODIFY `Ma_buoi_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Ma_buoi_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `chung_chi`
@@ -360,7 +360,7 @@ ALTER TABLE `hoc_vien`
 -- AUTO_INCREMENT cho bảng `khoa_hoc`
 --
 ALTER TABLE `khoa_hoc`
-  MODIFY `Ma_khoa_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Ma_khoa_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `kieu_lich_hoc`
@@ -378,7 +378,13 @@ ALTER TABLE `lich_giang`
 -- AUTO_INCREMENT cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
-  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `nguoi_dung`
+--
+ALTER TABLE `nguoi_dung`
+  MODIFY `Ma_nguoi_dung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `phong_hoc`

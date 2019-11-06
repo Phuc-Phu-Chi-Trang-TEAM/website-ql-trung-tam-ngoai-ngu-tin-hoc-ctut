@@ -23,6 +23,10 @@ Route::get('trang-chu', function () {
 
 //Routes quản lý người dùng
 Route::get('quan-ly-nguoi-dung', 'NguoiDungController@layDanhSachNguoiDung');
+Route::get('quan-ly-nguoi-dung/{id}', 'NguoiDungController@layThongTinNguoiDung');
+Route::get('quan-ly-nguoi-dung/delete/{id}', 'NguoiDungController@layThongTinNguoiDungCanXoa');
+Route::post('quan-ly-nguoi-dung','NguoiDungController@batSuKienClickButton');
+
 
 // Routes quản lý phòng học
 Route::get('quan-ly-phong-hoc', 'PhongHocController@layDanhSachPhongHoc');
