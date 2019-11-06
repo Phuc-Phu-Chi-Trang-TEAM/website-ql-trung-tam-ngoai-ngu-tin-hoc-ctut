@@ -34,22 +34,25 @@
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Tên lớp học <span style="color:red">*</span></label></td>
-                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1"/></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ttlh->Ten_lop_hoc}}"/></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Ghi chú</label></td>
-                                        <td width="400" ><input type="text" name="ghi_chu" class="input1"/></td>
+                                        <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$ttlh->Ghi_chu}}"/></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                           <td width="200"><label for="nn">Khóa Học</label></td>
                                           <td>
-                                          <select name="khoa_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
-                                              <option value="">Chọn khóa học</option>
-                                          </select></div>
+                                            <select name="ma_khoa_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="{{$ttlh->Ma_khoa_hoc}}" selected>{{$ttlh->Ten_khoa_hoc}}</option>
+                                                @foreach ($ds_khoa_hoc as $dskh)
+                                                    <option value="{{$dskh->Ma_khoa_hoc}}">{{$dskh->Ten_khoa_hoc}}</option>
+                                                @endforeach
+                                            </select>
                                         </td>
                                     </div>
                                 </tr>
@@ -57,35 +60,61 @@
                                     <div class="tt">
                                           <td width="200"><label for="nn">Buổi Học</label></td>
                                           <td>
-                                          <select name="buoi_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
-                                              <option value="">Chọn buổi học</option>
-                                          </select></div>
+                                            <select name="ma_buoi_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="{{$ttlh->Ma_buoi_hoc}}" selected>{{$ttlh->Ten_buoi_hoc}}</option>
+                                                @foreach ($ds_buoi_hoc as $dskh)
+                                                    <option value="{{$dskh->Ma_buoi_hoc}}">{{$dskh->Ten_buoi_hoc}}</option>
+                                                @endforeach
+                                            </select>
                                         </td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                          <td width="200"><label for="nn">Chứng Chỉ</label></td>
+                                          <td width="200"><label for="nn">Chứng chỉ</label></td>
                                           <td>
-                                          <select name="chung_chi" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
-                                              <option value="">Chọn chứng chỉ</option>
-                                          </select></div>
+                                            <select name="ma_chung_chi" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="{{$ttlh->Ma_chung_chi}}" selected>{{$ttlh->Ten_chung_chi}}</option>
+                                                @foreach ($ds_chung_chi as $dskh)
+                                                    <option value="{{$dskh->Ma_chung_chi}}">{{$dskh->Ten_chung_chi}}</option>
+                                                @endforeach
+                                            </select>
                                         </td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Ngày khai giảng</label></td>
-                                        <td width="400" ><input type="date" name="ngay_khai_giang" class="input1"/></td>
+                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_khai_giang" class="input1"/></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Ngày bế giảng</label></td>
-                                        <td width="400" ><input type="date" name="ngay_be_giang" class="input1"/></td>
+                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_be_giang" value="" class="input1"/></td>
                                     </div>
                                 </tr>
                                 <tr>
+                                    <div class="tt">
+                                          <td width="200"><label for="nn">Lịch học</label></td>
+                                          <td>
+                                            <select name="ma_kieu_lich_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="{{$ttlh->Ma_kieu_lich_hoc}}" selected>{{$ttlh->Ten_kieu_lich_hoc}}</option>
+                                                @foreach ($ds_kieu_lich_hoc as $dskh)
+                                                    <option value="{{$dskh->Ma_kieu_lich_hoc}}">{{$dskh->Ten_kieu_lich_hoc}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td colspan="2" align="center">
+                                            <input type="submit" name="btn_luu" class="nut" value="Lưu">
+                                            <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
+                                        </td>
+                                    </div>
+                                </tr>
                             </table>
                         @endforeach
                     @elseif(isset($thong_tin_lop_hoc_xoa))
@@ -112,6 +141,72 @@
                                     <div class="tt">
                                         <td colspan="2" align="center">
                                             <input type="submit" name="btn_xoa" class="nut" value="Xóa">
+                                            <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
+                                        </td>
+                                    </div>
+                                </tr>
+                            </table>
+                        @endforeach
+                    @elseif(isset($chi_tiet_lop_hoc))
+                        @foreach ($chi_tiet_lop_hoc as $ctlh)
+                            <table width="650px">
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Mã lớp học</label></td>
+                                        <td width="400" ><input type="text" name="ma_lop_hoc" class="input1" value="{{$ctlh->Ma_lop_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Tên lớp học</label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_lop_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Ghi chú</label></td>
+                                        <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$ctlh->Ghi_chu}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Khóa học</label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_khoa_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Buổi học </label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_buoi_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Chứng chỉ </label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_chung_chi}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Ngày khai giảng</label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ngay_khai_giang}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Lịch học</label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_kieu_lich_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200"><label for="nn">Số lượng học viên</label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->So_luong_hoc_vien}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td colspan="2" align="center">
                                             <input type="submit" name="btn_huy" class="nut" value="Hủy Bỏ"/>
                                         </td>
                                     </div>

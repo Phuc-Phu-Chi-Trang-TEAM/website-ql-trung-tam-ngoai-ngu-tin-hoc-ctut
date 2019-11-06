@@ -105,3 +105,10 @@ Noi dung da thuc hien tren du an:
 	---Thay doi cau truc mot so bang trong csdl
 	---Hoan thanh chuc nang them trong module quan ly lop hoc
 -----------------------------------------------------------------
+Lan 14:
+Ten commit: bakup lan 14
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 17:08 06/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module quan ly lop hoc (Them, sua, xoa)
+-----------------------------------------------------------------
