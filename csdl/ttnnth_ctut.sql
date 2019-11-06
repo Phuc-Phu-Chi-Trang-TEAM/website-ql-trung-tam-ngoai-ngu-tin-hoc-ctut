@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2019 lúc 09:36 AM
+-- Thời gian đã tạo: Th10 06, 2019 lúc 06:23 AM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `buoi_hoc` (
-  `Ma_buoi_hoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Ma_buoi_hoc` int(11) NOT NULL,
+  `Ten_buoi_hoc` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Ghi_chu` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -37,9 +38,8 @@ CREATE TABLE `buoi_hoc` (
 -- Đang đổ dữ liệu cho bảng `buoi_hoc`
 --
 
-INSERT INTO `buoi_hoc` (`Ma_buoi_hoc`, `Ghi_chu`) VALUES
-('CH', 'Chiều'),
-('SA', 'Sáng');
+INSERT INTO `buoi_hoc` (`Ma_buoi_hoc`, `Ten_buoi_hoc`, `Ghi_chu`) VALUES
+(1, 'Sáng', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,18 +70,7 @@ CREATE TABLE `chung_chi` (
 --
 
 INSERT INTO `chung_chi` (`Ma_chung_chi`, `Ten_chung_chi`, `Gia_tien`, `Ghi_chu`) VALUES
-(1, 'Toeic', 1500000, NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `giang_day`
---
-
-CREATE TABLE `giang_day` (
-  `Ma_giao_vien` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `Ma_lop_hoc` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+(2, 'Toeic', 15000000, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,6 +146,47 @@ CREATE TABLE `khoa_hoc` (
   `Ghi_chu` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `khoa_hoc`
+--
+
+INSERT INTO `khoa_hoc` (`Ma_khoa_hoc`, `Ten_khoa_hoc`, `Ghi_chu`) VALUES
+(1, 'Toeic 450+', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `kieu_lich_hoc`
+--
+
+CREATE TABLE `kieu_lich_hoc` (
+  `Ma_kieu_lich_hoc` int(11) NOT NULL,
+  `Ten_kieu_lich_hoc` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Ghi_chu` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `kieu_lich_hoc`
+--
+
+INSERT INTO `kieu_lich_hoc` (`Ma_kieu_lich_hoc`, `Ten_kieu_lich_hoc`, `Ghi_chu`) VALUES
+(1, 'Thứ 2-4-6', 'Học vào các ngày thứ 2,4,6 trong tuần'),
+(2, 'Thứ 3-5-7', 'Học vào các ngày thứ 3,5,7 trong tuần');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lich_giang`
+--
+
+CREATE TABLE `lich_giang` (
+  `Ma_lich_giang` int(11) NOT NULL,
+  `Ma_giao_vien` int(11) NOT NULL,
+  `Ngay` date NOT NULL,
+  `Ma_buoi_hoc` int(11) NOT NULL,
+  `Ma_lop_hoc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -168,10 +198,22 @@ CREATE TABLE `lop_hoc` (
   `Ten_lop_hoc` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `So_luong_hoc_vien` int(11) DEFAULT NULL,
   `Ghi_chu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ma_khoa_hoc` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ma_buoi_hoc` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ma_chung_chi` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Ma_khoa_hoc` int(11) DEFAULT NULL,
+  `Ma_buoi_hoc` int(11) DEFAULT NULL,
+  `Ma_chung_chi` int(11) DEFAULT NULL,
+  `Ngay_khai_giang` date NOT NULL,
+  `Ngay_be_giang` date NOT NULL,
+  `Ma_kieu_lich_hoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lop_hoc`
+--
+
+INSERT INTO `lop_hoc` (`Ma_lop_hoc`, `Ten_lop_hoc`, `So_luong_hoc_vien`, `Ghi_chu`, `Ma_khoa_hoc`, `Ma_buoi_hoc`, `Ma_chung_chi`, `Ngay_khai_giang`, `Ngay_be_giang`, `Ma_kieu_lich_hoc`) VALUES
+(1, 'Lớp Toeic 450+ 20/11', NULL, 'Khai giảng ngày 20/11', 1, 1, 2, '0000-00-00', '0000-00-00', 0),
+(2, 'Lớp Toeic 450+ 20/11', 0, 'Khai giảng ngày 20/11', 1, NULL, 2, '0000-00-00', '0000-00-00', 0),
+(3, 'Lớp Toeic 450+ 20/11', 0, NULL, 1, 1, 2, '2019-11-10', '2019-12-10', 1);
 
 -- --------------------------------------------------------
 
@@ -202,8 +244,7 @@ CREATE TABLE `phong_hoc` (
 --
 
 INSERT INTO `phong_hoc` (`Ma_phong_hoc`, `Ten_phong_hoc`, `Ghi_chu`) VALUES
-(1, 'C101', NULL),
-(2, 'C102', NULL);
+(1, 'C101', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -226,12 +267,6 @@ ALTER TABLE `cham_cong`
 --
 ALTER TABLE `chung_chi`
   ADD PRIMARY KEY (`Ma_chung_chi`);
-
---
--- Chỉ mục cho bảng `giang_day`
---
-ALTER TABLE `giang_day`
-  ADD PRIMARY KEY (`Ma_giao_vien`);
 
 --
 -- Chỉ mục cho bảng `giao_vien`
@@ -264,6 +299,18 @@ ALTER TABLE `khoa_hoc`
   ADD PRIMARY KEY (`Ma_khoa_hoc`);
 
 --
+-- Chỉ mục cho bảng `kieu_lich_hoc`
+--
+ALTER TABLE `kieu_lich_hoc`
+  ADD PRIMARY KEY (`Ma_kieu_lich_hoc`);
+
+--
+-- Chỉ mục cho bảng `lich_giang`
+--
+ALTER TABLE `lich_giang`
+  ADD PRIMARY KEY (`Ma_lich_giang`);
+
+--
 -- Chỉ mục cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
@@ -286,10 +333,16 @@ ALTER TABLE `phong_hoc`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `buoi_hoc`
+--
+ALTER TABLE `buoi_hoc`
+  MODIFY `Ma_buoi_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT cho bảng `chung_chi`
 --
 ALTER TABLE `chung_chi`
-  MODIFY `Ma_chung_chi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Ma_chung_chi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `giao_vien`
@@ -307,19 +360,31 @@ ALTER TABLE `hoc_vien`
 -- AUTO_INCREMENT cho bảng `khoa_hoc`
 --
 ALTER TABLE `khoa_hoc`
-  MODIFY `Ma_khoa_hoc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Ma_khoa_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `kieu_lich_hoc`
+--
+ALTER TABLE `kieu_lich_hoc`
+  MODIFY `Ma_kieu_lich_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `lich_giang`
+--
+ALTER TABLE `lich_giang`
+  MODIFY `Ma_lich_giang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
-  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `phong_hoc`
 --
 ALTER TABLE `phong_hoc`
-  MODIFY `Ma_phong_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Ma_phong_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

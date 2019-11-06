@@ -97,3 +97,11 @@ Thoi gian: 10:32 06/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly buoi hoc (them, sua, xoa)
 -----------------------------------------------------------------
+Lan 13:
+Ten commit: bakup lan 13
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 12:25 06/11/2019
+Noi dung da thuc hien tren du an:
+	---Thay doi cau truc mot so bang trong csdl
+	---Hoan thanh chuc nang them trong module quan ly lop hoc
+-----------------------------------------------------------------

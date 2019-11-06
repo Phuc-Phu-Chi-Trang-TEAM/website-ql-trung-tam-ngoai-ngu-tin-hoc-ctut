@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class GiangDayModel extends Model
 {
-    protected $table = 'giang_day';
+    protected $table = 'lich_giang';
     public $timestamps = false;
 }
