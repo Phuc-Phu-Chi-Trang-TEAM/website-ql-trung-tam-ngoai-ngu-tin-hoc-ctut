@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 06, 2019 lúc 02:52 PM
+-- Thời gian đã tạo: Th10 08, 2019 lúc 04:26 PM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -70,7 +70,8 @@ CREATE TABLE `chung_chi` (
 --
 
 INSERT INTO `chung_chi` (`Ma_chung_chi`, `Ten_chung_chi`, `Gia_tien`, `Ghi_chu`) VALUES
-(2, 'Toeic', 15000000, NULL);
+(2, 'Toeic', 15000000, NULL),
+(3, 'Tin học A', 500000, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ INSERT INTO `chung_chi` (`Ma_chung_chi`, `Ten_chung_chi`, `Gia_tien`, `Ghi_chu`)
 CREATE TABLE `giao_vien` (
   `Ma_giao_vien` int(11) NOT NULL,
   `Ten_giao_vien` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ngay_sinh` datetime DEFAULT NULL,
+  `Ngay_sinh` date DEFAULT NULL,
   `Noi_sinh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CMND` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Hoc_vi` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -102,6 +103,28 @@ CREATE TABLE `hoc_lop` (
   `Ma_hoc_vien` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `Ma_lop_hoc` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoc_lop`
+--
+
+INSERT INTO `hoc_lop` (`Ma_hoc_vien`, `Ma_lop_hoc`) VALUES
+('1', '1'),
+('13', '1');
+
+--
+-- Bẫy `hoc_lop`
+--
+DELIMITER $$
+CREATE TRIGGER `after_insert_hoc_lop` AFTER INSERT ON `hoc_lop` FOR EACH ROW BEGIN
+UPDATE lop_hoc
+SET
+	So_luong_hoc_vien = So_luong_hoc_vien +1
+WHERE
+	lop_hoc.Ma_lop_hoc = new.Ma_lop_hoc;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -126,13 +149,18 @@ CREATE TABLE `hoc_vien` (
   `Ngay_sinh` datetime DEFAULT NULL,
   `Noi_sinh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CMND` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Hoc_vi` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Chuyen_nganh` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Dia_chi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Dien_thoai` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Ghi_chu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoc_vien`
+--
+
+INSERT INTO `hoc_vien` (`Ma_hoc_vien`, `Ten_hoc_vien`, `Ngay_sinh`, `Noi_sinh`, `CMND`, `Dia_chi`, `Dien_thoai`, `Email`, `Ghi_chu`) VALUES
+(1, 'Nguyễn Hoàng Phúc', '1998-12-12 00:00:00', 'Kiên Giang', '97857645', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -206,6 +234,15 @@ CREATE TABLE `lop_hoc` (
   `Ngay_be_giang` date NOT NULL,
   `Ma_kieu_lich_hoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lop_hoc`
+--
+
+INSERT INTO `lop_hoc` (`Ma_lop_hoc`, `Ten_lop_hoc`, `So_luong_hoc_vien`, `Ghi_chu`, `Ma_khoa_hoc`, `Ma_buoi_hoc`, `Ma_chung_chi`, `Ngay_khai_giang`, `Ngay_be_giang`, `Ma_kieu_lich_hoc`) VALUES
+(1, 'Lớp Toeic 450+  1 (11/2019)', 2, NULL, 1, 1, 2, '2019-11-10', '2020-01-10', 1),
+(2, 'Lớp Toeic 450+  1 (8/2019)', 1, NULL, 1, 1, 2, '2019-08-10', '2019-10-10', 2),
+(3, 'Lớp Toeic 450+  2 (11/2019)', 1, NULL, 1, 1, 2, '2019-11-10', '2020-01-10', 2);
 
 -- --------------------------------------------------------
 
@@ -342,7 +379,7 @@ ALTER TABLE `buoi_hoc`
 -- AUTO_INCREMENT cho bảng `chung_chi`
 --
 ALTER TABLE `chung_chi`
-  MODIFY `Ma_chung_chi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Ma_chung_chi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `giao_vien`
@@ -354,7 +391,7 @@ ALTER TABLE `giao_vien`
 -- AUTO_INCREMENT cho bảng `hoc_vien`
 --
 ALTER TABLE `hoc_vien`
-  MODIFY `Ma_hoc_vien` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Ma_hoc_vien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `khoa_hoc`
@@ -378,13 +415,13 @@ ALTER TABLE `lich_giang`
 -- AUTO_INCREMENT cho bảng `lop_hoc`
 --
 ALTER TABLE `lop_hoc`
-  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Ma_lop_hoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
-  MODIFY `Ma_nguoi_dung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Ma_nguoi_dung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `phong_hoc`

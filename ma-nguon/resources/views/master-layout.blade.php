@@ -13,6 +13,8 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.js"></script>
 	<link rel="stylesheet" 	href="assets/css/ui-lightness/jquery-ui-1.10.2.custom.css" />
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
 </head>
 <body>
@@ -80,6 +82,8 @@
     {{-- content --}}
             @yield('content');
 	{{-- end content --}}
+
+	<script src="assets/js/load-ajax.js"></script>
 
 </div> <!-- End of Content Wrapper -->
 	<div id="footer"> 

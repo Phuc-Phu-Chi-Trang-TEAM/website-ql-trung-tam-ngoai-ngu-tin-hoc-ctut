@@ -85,13 +85,13 @@
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Ngày khai giảng</label></td>
-                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_khai_giang" class="input1"/></td>
+                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_khai_giang" value="{{$ttlh->Ngay_khai_giang}}" class="input1"/></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Ngày bế giảng</label></td>
-                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_be_giang" value="" class="input1"/></td>
+                                        <td width="400" ><input style="width:250px; margin-left:5px" type="date" name="ngay_be_giang" value="{{$ttlh->Ngay_be_giang}}" class="input1"/></td>
                                     </div>
                                 </tr>
                                 <tr>

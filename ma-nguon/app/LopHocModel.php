@@ -11,6 +11,23 @@ class LopHocModel extends Model
     protected $primaryKey = 'Ma_lop_hoc' ;
     public $timestamps = false;
 
+    public static function layDSLopHocChuaKetThuc(){
+        $data = DB::table('lop_hoc')
+                ->whereDate('Ngay_be_giang','>',now())
+                ->get();
+
+        return $data;
+    }
+
+    public static function layDSLHTheoChungChi($ma_chung_chi){
+        $data = DB::table('lop_hoc')
+                ->whereDate('Ngay_be_giang','>',now())
+                ->where('Ma_chung_chi','=',$ma_chung_chi)
+                ->get();
+
+        return $data;
+    }
+
     public static function lienKetDuLieu($id){
         $data = DB::table('lop_hoc')
                 ->join('khoa_hoc','khoa_hoc.Ma_khoa_hoc','=','lop_hoc.Ma_khoa_hoc')

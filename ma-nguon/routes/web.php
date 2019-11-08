@@ -47,6 +47,12 @@ Route::get('xem-lich-giang', function () {
 
 //Routes đăng ký học viên
 Route::get('dang-ky-hoc-vien', 'HocVienController@layDanhSachHocVien');
+Route::get('dang-ky-hoc-vien/{id}', 'HocVienController@layThongTinHocVien');
+Route::get('dang-ky-hoc-vien/xem-chi-tiet/{id}', 'HocVienController@chiTietHocVien');
+Route::get('dang-ky-hoc-vien/delete/{id}', 'HocVienController@layThongTinHocVienCanXoa');
+Route::post('dang-ky-hoc-vien','HocVienController@batSuKienClickButton');
+Route::get('dang-ky-hoc-vien/ajax-ma-chung-chi/{id}','HocVienController@loadCbxLopHoc');
+Route::get('dang-ky-hoc-vien/ajax-ma-lop-hoc/{id}','HocVienController@loadChiTietLopHoc');
 
 //Routes phân công giảng dạy
 Route::get('phan-cong-giang-day', 'GiangDayController@layDanhSachGiangDay');
