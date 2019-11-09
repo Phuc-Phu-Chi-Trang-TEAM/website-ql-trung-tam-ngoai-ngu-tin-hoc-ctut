@@ -111,8 +111,21 @@ class LopHocController extends Controller
     protected function capNhatThongTinLopHoc($request){
         $this->validate(
             $request,
-            ['ten_lop_hoc'=>'required'],
-            ['ten_lop_hoc.required'=>"Bạn chưa nhập tên lớp học"]
+            ['ten_lop_hoc'=>'required',
+            'ma_khoa_hoc'=>'required',
+            'ma_buoi_hoc'=>'required',
+            'ma_chung_chi'=>'required',
+            'ngay_khai_giang'=>'required',
+            'ngay_be_giang'=>'required',
+            'ma_kieu_lich_hoc'=>'required'],
+
+            ['ten_lop_hoc.required'=>"Bạn chưa nhập tên lớp học",
+            'ma_khoa_hoc.required'=>"Bạn chưa chọn khóa học",
+            'ma_buoi_hoc.required'=>"Bạn chưa chọn buổi học",
+            'ma_chung_chi.required'=>"Bạn chưa chọn chứng chỉ",
+            'ngay_khai_giang.required'=>"Bạn chưa nhập ngày khai giảng",
+            'ngay_be_giang.required'=>"Bạn chưa nhập ngày bế giảng",
+            'ma_kieu_lich_hoc.required'=>"Bạn chưa chọn lịch học"]
         );
 
         $lop_hoc=LopHocModel::where('Ma_lop_hoc','=',$request->ma_lop_hoc)->first();
@@ -126,6 +139,10 @@ class LopHocController extends Controller
         $lop_hoc->ngay_be_giang = $request->ngay_be_giang;
         $lop_hoc->ma_kieu_lich_hoc = $request->ma_kieu_lich_hoc;
         $lop_hoc->save();
+
+        LichHocModel::xoaLichHoc($request->ma_lop_hoc);
+        $this->themLichHoc($request->ma_lop_hoc, $request->ngay_khai_giang, $request->ngay_be_giang, $request->ma_kieu_lich_hoc);
+
     }
 
     protected function xoaLopHoc($request){

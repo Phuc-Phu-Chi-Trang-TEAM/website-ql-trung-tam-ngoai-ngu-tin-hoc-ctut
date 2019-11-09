@@ -135,12 +135,14 @@ class HocVienController extends Controller
             ['ten_hoc_vien'=>'required',
             'ngay_sinh'=>'required',
             'noi_sinh'=>'required',
-            'cmnd'=>'required'],
+            'cmnd'=>'required',
+            'ma_lop_hoc'=>'required'],
 
             ['ten_hoc_vien.required'=>"Bạn chưa nhập tên học viên",
             'ngay_sinh.required'=>"Bạn chưa nhập ngày sinh",
             'noi_sinh.required'=>"Bạn chưa nhập nơi sinh",
-            'cmnd.required'=>"Bạn chưa nhập CMND",]
+            'cmnd.required'=>"Bạn chưa nhập CMND",
+            'ma_lop_hoc.required'=>"Bạn chưa chọn lớp học"]
         );
 
         $hoc_vien=HocVienModel::where('Ma_hoc_vien','=',$request->ma_hoc_vien)->first();
