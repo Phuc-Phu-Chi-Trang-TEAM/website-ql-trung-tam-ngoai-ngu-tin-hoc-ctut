@@ -29,4 +29,27 @@ class GiangDayModel extends Model
 
         return $data;
     }
+
+    public static function layDSLopHocChuaPhanCong(){
+        $data = DB::table('giang_day')
+                ->join('lop_hoc','lop_hoc.Ma_lop_hoc','=','giang_day.Ma_lop_hoc')
+                ->where('Ma_giao_vien','=',0)
+                ->whereDate('lop_hoc.Ngay_be_giang','>',now())
+                ->select('giang_day.Ma_lop_hoc','lop_hoc.Ten_lop_hoc')
+                ->get();
+
+        return $data;
+    }
+
+    public static function layDSLHTheoChungChi($ma_chung_chi){
+        $data = DB::table('giang_day')
+                ->join('lop_hoc','lop_hoc.Ma_lop_hoc','=','giang_day.Ma_lop_hoc')
+                ->where('Ma_giao_vien','=',0)
+                ->where('lop_hoc.Ma_chung_chi','=',$ma_chung_chi)
+                ->whereDate('lop_hoc.Ngay_be_giang','>',now())
+                ->select('giang_day.Ma_lop_hoc','lop_hoc.Ten_lop_hoc')
+                ->get();
+
+        return $data;
+    }
 }

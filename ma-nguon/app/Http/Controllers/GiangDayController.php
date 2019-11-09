@@ -14,7 +14,7 @@ class GiangDayController extends Controller
     protected function layDanhSachGiangDay(){
         $ds_giang_day = GiangDayModel::layDSGiangDay();
         $ds_chung_chi = ChungChiModel::all();
-        $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
+        $ds_lop_hoc = GiangDayModel::layDSLopHocChuaPhanCong();
         $ds_giao_vien = GiaoVienModel::all();
         $ds_chuyen_nganh = ChuyenNganhModel::all();
         return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,
@@ -26,7 +26,7 @@ class GiangDayController extends Controller
 
     protected function batSuKienClickButton(Request $request){
         if ($request->btn_them){
-            $this->themGiangDay($request);
+            $this->capNhatThongTinGiangDay($request);
             return redirect('phan-cong-giang-day')->with('thongbao','Thêm thành công');
         }
         if ($request->btn_luu){
@@ -43,7 +43,7 @@ class GiangDayController extends Controller
     }
 
     protected function loadCbxLopHoc($ma_chung_chi){
-        $ds_lop_hoc = LopHocModel::layDSLHTheoChungChi($ma_chung_chi);
+        $ds_lop_hoc = GiangDayModel::layDSLHTheoChungChi($ma_chung_chi);
         echo '<option value="">Chọn lớp học</option>';
         foreach($ds_lop_hoc as $dslh){
             echo '<option value="'.$dslh->Ma_lop_hoc.'">('.$dslh->Ma_lop_hoc.') '.$dslh->Ten_lop_hoc.'</option>';

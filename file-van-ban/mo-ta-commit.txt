@@ -146,3 +146,10 @@ Noi dung da thuc hien tren du an:
 	---Hoan thanh module phan cong giang day
 	---Thay doi cau truc csdl
 -----------------------------------------------------------------
+Lan 19:
+Ten commit: bakup lan 19
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 18:40 09/11/2019
+Noi dung da thuc hien tren du an:
+	---Chinh sua module phan cong giang day
+-----------------------------------------------------------------
