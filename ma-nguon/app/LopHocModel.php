@@ -44,4 +44,15 @@ class LopHocModel extends Model
 
         return $data;
     }
+
+    public static function layMaLopHocLonNhat(){
+        $ma_lh_lon_nhat = DB::table('lop_hoc')->max('Ma_lop_hoc');
+        $ma_lh = $ma_lh_lon_nhat;
+
+        $data = DB::table('lop_hoc')
+                ->where('Ma_lop_hoc','=',$ma_lh)
+                ->first();
+
+        return $data;
+    }
 }

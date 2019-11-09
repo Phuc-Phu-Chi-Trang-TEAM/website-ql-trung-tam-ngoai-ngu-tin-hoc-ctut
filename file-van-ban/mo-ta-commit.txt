@@ -153,3 +153,11 @@ Thoi gian: 18:40 09/11/2019
 Noi dung da thuc hien tren du an:
 	---Chinh sua module phan cong giang day
 -----------------------------------------------------------------
+Lan 20:
+Ten commit: bakup lan 20
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 23:32 09/11/2019
+Noi dung da thuc hien tren du an:
+	---Chinh sua module them lop hoc (them lop tu dong them lich hoc)
+	---Chinh sua cau truc csdl
+-----------------------------------------------------------------
