@@ -41,9 +41,10 @@ Route::get('quan-ly-chung-chi/delete/{id}', 'ChungChiController@layThongTinChung
 Route::post('quan-ly-chung-chi','ChungChiController@batSuKienClickButton');
 
 //Routes xem lịch giảng
-Route::get('xem-lich-giang', function () {
-    return view('xem-lich-giang');
-});
+Route::get('xem-lich-giang','LichGiangController@hienThi');
+Route::get('xem-lich-giang/ajax-ma-chuyen-nganh/{id}','LichGiangController@loadCbxGiaoVien');
+Route::get('xem-lich-giang/ajax-ma-giao-vien/{id}','LichGiangController@loadChiTietGiaoVien');
+Route::post('xem-lich-giang','LichGiangController@layDSLichGiang');
 
 //Routes đăng ký học viên
 Route::get('dang-ky-hoc-vien', 'HocVienController@layDanhSachHocVien');

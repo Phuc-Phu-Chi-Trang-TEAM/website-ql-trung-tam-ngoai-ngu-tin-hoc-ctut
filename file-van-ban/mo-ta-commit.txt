@@ -6,6 +6,7 @@ DANH SACH CAC MODULE DA HOAN THANH
 5. Quan ly lop hoc.
 6. Quan ly nguoi dung.
 7. Phan cong giang day.
+8. Xem lich giang.
 
 
 
@@ -167,4 +168,11 @@ Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 23:55 09/11/2019
 Noi dung da thuc hien tren du an:
 	---Chinh sua module them lop hoc (sua lop tu dong sua lich hoc)
+-----------------------------------------------------------------
+Lan 22:
+Ten commit: bakup lan 22
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 02:12 10/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module xem lich giang
 -----------------------------------------------------------------

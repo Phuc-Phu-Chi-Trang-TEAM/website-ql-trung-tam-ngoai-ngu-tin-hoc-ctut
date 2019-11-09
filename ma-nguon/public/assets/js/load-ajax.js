@@ -75,3 +75,29 @@ function loadChiTietGiaoVienPCGD(){
     }
   })
 }
+
+//Load cbx giáo viên theo cbx chuyên ngành trang XEM LỊCH GIẢNG
+function loadCbxGiaoVienTheoCbxChuyenNganhXLG(){
+  $(document).ready(function(){
+    var ma_chuyen_nganh = $('#cbx_chuyen_nganh').val();
+    console.log(ma_chuyen_nganh);
+    $.get("xem-lich-giang/ajax-ma-chuyen-nganh/"+ma_chuyen_nganh,function(data){
+      $("select[name='ma_giao_vien']").html(data);
+    })
+  })
+}
+
+//load table chi tiết giáo viên theo cbx giáo viên trang XEM LỊCH GIẢNG
+function loadChiTietGiaoVienXLG(){
+  $(document).ready(function(){
+    var ma_giao_vien = $('#cbx_giao_vien').val();
+    if (ma_giao_vien == null){
+      alert("Hãy chọn 1 giáo viên");
+    }
+    else{
+      $.get("xem-lich-giang/ajax-ma-giao-vien/"+ma_giao_vien,function(data){
+        $("#chi_tiet_giao_vien_load").html(data);
+      })
+    }
+  })
+}
