@@ -34,49 +34,91 @@
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Tên học viên <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="ten_hoc_vien" class="input1" value="{{$tthv->Ten_hoc_vien}}"/></div></td>
+                                      <td width="400" ><input type="text" name="ten_hoc_vien" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ngày sinh <span style="color:red">*</span></label></td>
-                                      <td width="400"><input style="width:250px; margin-left:5px" type="date" name="ngay_sinh" class="input1" value="{{$tthv->Ngay_sinh}}"/></div></td>
+                                      <td width="400"><input style="width:250px; margin-left:5px" type="date" name="ngay_sinh" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Nơi sinh <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="noi_sinh" class="input1" value="{{$tthv->Noi_sinh}}"/></div></td>
+                                      <td width="400" ><input type="text" name="noi_sinh" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">CMND <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="cmnd" class="input1" value="{{$tthv->CMND}}"/></div></td>
+                                      <td width="400" ><input type="text" name="cmnd" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Địa chỉ</label></td>
-                                      <td width="400" ><input type="text" name="dia_chi" class="input1" value="{{$tthv->Dia_chi}}"/></div></td>
+                                      <td width="400" ><input type="text" name="dia_chi" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Điện thoại</label></td>
-                                      <td width="400" ><input type="text" name="dien_thoai" class="input1" value="{{$tthv->Dien_thoai}}"/></div></td>
+                                      <td width="400" ><input type="text" name="dien_thoai" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Email</label></td>
-                                      <td width="400" ><input type="text" name="email" class="input1" value="{{$tthv->Email}}"/></div></td>
+                                      <td width="400" ><input style="width:250px; margin-left:5px" type="email" name="email" class="input1"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ghi chú</label></td>
-                                      <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$tthv->Ghi_chu}}"/></div></td>
+                                      <td width="400" ><input type="text" name="ghi_chu" class="input1"/></div></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200" style="font-family: none;"><h2>Chọn Lớp Học</h2></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td width="200"><label for="nn">Loại chứng chỉ</label></td>
+                                        <td>
+                                            <select onchange="loadCbxLopHocTheoCbxChungChi()" id="cbx_chung_chi" name="ma_chung_chi" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="">Chọn chứng chỉ</option>
+                                                @foreach ($ds_chung_chi as $dscc)
+                                                    <option value="{{$dscc->Ma_chung_chi}}">{{$dscc->Ten_chung_chi}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td width="200"><label for="nn">Lớp học <span style="color:red">*</span></label></td>
+                                        <td>
+                                            <select onchange="loadChiTietLopHoc()" id="cbx_lop_hoc" name="ma_lop_hoc" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="">Chọn lớp học</option>
+                                                @foreach ($ds_lop_hoc as $dslh)
+                                                    <option value="{{$dslh->Ma_lop_hoc}}">({{$dslh->Ma_lop_hoc}}) {{$dslh->Ten_lop_hoc}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <td widht="200" style="font-family: none;"><h2>Chi tiết lớp học:</h2></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                        <table id="chi_tiet_lop_hoc_load" style="padding: 0;border: none;border-collapse: collapse;border: 1px solid #ddd;width: 600px;margin: 10px; auto 10px;">
+                                        </table>
                                     </div>
                                 </tr>
                                 <tr>
@@ -120,60 +162,60 @@
                             </table>
                         @endforeach
                     @elseif(isset($chi_tiet_hoc_vien))
-                        @foreach ($chi_tiet_hoc_vien as $ctgv)
+                        @foreach ($chi_tiet_hoc_vien as $cthv)
                             <table width="650px">
                                 <tr>
                                     <div class="tt">
                                         <td width="200"><label for="nn">Mã học viên</label></td>
-                                        <td width="400" ><input type="text" name="ma_hoc_vien" class="input1" value="{{$ctgv->Ma_hoc_vien}}" readonly/></div></td>
+                                        <td width="400" ><input type="text" name="ma_hoc_vien" class="input1" value="{{$cthv->Ma_hoc_vien}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Tên học viên</label></td>
-                                      <td width="400" ><input type="text" name="ten_hoc_vien" class="input1" value="{{$ctgv->Ten_hoc_vien}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="ten_hoc_vien" class="input1" value="{{$cthv->Ten_hoc_vien}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ngày sinh</label></td>
-                                      <td width="400" ><input type="text" name="ngay_sinh" class="input1" value="{{$ctgv->Ngay_sinh}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="ngay_sinh" class="input1" value="{{$cthv->Ngay_sinh}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Nơi sinh</label></td>
-                                      <td width="400" ><input type="text" name="noi_sinh" class="input1" value="{{$ctgv->Noi_sinh}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="noi_sinh" class="input1" value="{{$cthv->Noi_sinh}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">CMND</label></td>
-                                      <td width="400" ><input type="text" name="cmnd" class="input1" value="{{$ctgv->CMND}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="cmnd" class="input1" value="{{$cthv->CMND}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Địa chỉ</label></td>
-                                      <td width="400" ><input type="text" name="dia_chi" class="input1" value="{{$ctgv->Dia_chi}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="dia_chi" class="input1" value="{{$cthv->Dia_chi}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Điện thoại</label></td>
-                                      <td width="400" ><input type="text" name="dien_thoai" class="input1" value="{{$ctgv->Dien_thoai}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="dien_thoai" class="input1" value="{{$cthv->Dien_thoai}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Email</label></td>
-                                      <td width="400" ><input type="text" name="email" class="input1" value="{{$ctgv->Email}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="email" class="input1" value="{{$cthv->Email}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ghi chú</label></td>
-                                      <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$ctgv->Ghi_chu}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$cthv->Ghi_chu}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
@@ -260,7 +302,7 @@
                                             <select onchange="loadChiTietLopHoc()" id="cbx_lop_hoc" name="ma_lop_hoc" class="input1 cbx-inp" style="width:250px; margin-left:5px">
                                                 <option value="">Chọn lớp học</option>
                                                 @foreach ($ds_lop_hoc as $dslh)
-                                                    <option value="{{$dslh->Ma_lop_hoc}}">{{$dslh->Ten_lop_hoc}}</option>
+                                                    <option value="{{$dslh->Ma_lop_hoc}}">({{$dslh->Ma_lop_hoc}}) {{$dslh->Ten_lop_hoc}}</option>
                                                 @endforeach
                                             </select>
                                         </td>
@@ -315,9 +357,9 @@
                                         <td>{{$dshv->Ten_hoc_vien}}</td>
                                         <td>{{$dshv->Ngay_sinh}}</td>
                                         <td>{{$dshv->Dien_thoai}}</td>
-                                        <td class="center"><i class="icon-trash"></i><a href="quan-ly-hoc-vien/xem-chi-tiet/{{$dshv->Ma_hoc_vien}}">Chi tiết</a></td>
-                                        <td class="center"><i class="icon-trash"></i><a href="quan-ly-hoc-vien/delete/{{$dshv->Ma_hoc_vien}}"> Xóa</a></td>
-                                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="quan-ly-hoc-vien/{{$dshv->Ma_hoc_vien}}">Sửa</a></td>
+                                        <td class="center"><i class="icon-trash"></i><a href="dang-ky-hoc-vien/xem-chi-tiet/{{$dshv->Ma_hoc_vien}}">Chi tiết</a></td>
+                                        <td class="center"><i class="icon-trash"></i><a href="dang-ky-hoc-vien/delete/{{$dshv->Ma_hoc_vien}}"> Xóa</a></td>
+                                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="dang-ky-hoc-vien/{{$dshv->Ma_hoc_vien}}">Sửa</a></td>
                                     </tr>
                                 @endforeach
                              </tbody>

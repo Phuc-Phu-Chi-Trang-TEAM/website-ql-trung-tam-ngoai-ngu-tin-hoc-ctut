@@ -56,6 +56,14 @@ Route::get('dang-ky-hoc-vien/ajax-ma-lop-hoc/{id}','HocVienController@loadChiTie
 
 //Routes phân công giảng dạy
 Route::get('phan-cong-giang-day', 'GiangDayController@layDanhSachGiangDay');
+Route::get('phan-cong-giang-day/{id}', 'GiangDayController@layThongTinGiangDay');
+Route::get('phan-cong-giang-day/xem-chi-tiet/{id}', 'GiangDayController@chiTietGiangDay');
+Route::get('phan-cong-giang-day/delete/{id}', 'GiangDayController@layThongTinGiangDayCanXoa');
+Route::post('phan-cong-giang-day','GiangDayController@batSuKienClickButton');
+Route::get('phan-cong-giang-day/ajax-ma-chung-chi/{id}','GiangDayController@loadCbxLopHoc');
+Route::get('phan-cong-giang-day/ajax-ma-lop-hoc/{id}','GiangDayController@loadChiTietLopHoc');
+Route::get('phan-cong-giang-day/ajax-ma-giao-vien/{id}','GiangDayController@loadChiTietGiaoVien');
+Route::get('phan-cong-giang-day/ajax-ma-chuyen-nganh/{id}','GiangDayController@loadCbxGiaoVien');
 
 //Routes quản lý buổi học
 Route::get('quan-ly-buoi-hoc', 'BuoiHocController@layDanhSachBuoiHoc');

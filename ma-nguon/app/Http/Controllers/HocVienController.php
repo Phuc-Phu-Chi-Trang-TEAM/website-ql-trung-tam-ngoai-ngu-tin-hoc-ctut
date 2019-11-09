@@ -41,7 +41,7 @@ class HocVienController extends Controller
         $ds_lop_hoc = LopHocModel::layDSLHTheoChungChi($ma_chung_chi);
         echo '<option value="">Chọn lớp học</option>';
         foreach($ds_lop_hoc as $dslh){
-            echo '<option value="'.$dslh->Ma_lop_hoc.'">'.$dslh->Ten_lop_hoc.'</option>';
+            echo '<option value="'.$dslh->Ma_lop_hoc.'">('.$dslh->Ma_lop_hoc.') '.$dslh->Ten_lop_hoc.'</option>';
         }
     }
 
@@ -109,7 +109,12 @@ class HocVienController extends Controller
     protected function layThongTinHocVien($id){
         $thong_tin_hoc_vien = HocVienModel::where('Ma_hoc_vien',$id)->get();
         $ds_hoc_vien = HocVienModel::all();
-        return view ('dang-ky-hoc-vien',['ds_hoc_vien'=>$ds_hoc_vien,'thong_tin_hoc_vien'=>$thong_tin_hoc_vien]);
+        $ds_chung_chi = ChungChiModel::all();
+        $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
+        return view ('dang-ky-hoc-vien',['ds_hoc_vien'=>$ds_hoc_vien,
+                                        'thong_tin_hoc_vien'=>$thong_tin_hoc_vien,
+                                        'ds_chung_chi'=>$ds_chung_chi,
+                                        'ds_lop_hoc'=>$ds_lop_hoc]);
     }
 
     protected function chiTietHocVien($id){

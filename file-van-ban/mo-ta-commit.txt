@@ -5,6 +5,7 @@ DANH SACH CAC MODULE DA HOAN THANH
 4. Quan ly khoa hoc.
 5. Quan ly lop hoc.
 6. Quan ly nguoi dung.
+7. Phan cong giang day.
 
 
 
@@ -136,4 +137,12 @@ Thoi gian: 22:30 08/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh chuc nang dang ky hoc vien moi
 	---Them trigger after_insert_hoc_lop trong csdl
+-----------------------------------------------------------------
+Lan 18:
+Ten commit: bakup lan 18
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 17:52 09/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh module phan cong giang day
+	---Thay doi cau truc csdl
 -----------------------------------------------------------------

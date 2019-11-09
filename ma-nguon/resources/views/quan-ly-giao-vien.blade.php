@@ -72,10 +72,11 @@
                                     <div class="tt">
                                           <td width="200"><label for="nn">Chuyên ngành <span style="color:red">*</span></label></td>
                                           <td>
-                                          <select name="chuyen_nganh" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
-                                              <option value="{{$ttgv->Chuyen_nganh}}">{{$ttgv->Chuyen_nganh}}</option>
-                                              <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-                                              <option value="Ngôn ngữ Anh">Ngôn ngữ Anh</option>
+                                          <select name="ma_chuyen_nganh" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                              <option value="{{$ttgv->Ma_chuyen_nganh}}">{{$ttgv->Ten_chuyen_nganh}}</option>
+                                              @foreach ($ds_chuyen_nganh as $dscn)
+                                                <option value="{{$dscn->Ma_chuyen_nganh}}">{{$dscn->Ten_chuyen_nganh}}</option>
+                                              @endforeach
                                           </select></div>
                                         </td>
                                     </div>
@@ -186,7 +187,7 @@
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Chuyên ngành</label></td>
-                                      <td width="400" ><input type="text" name="chuyen_nganh" class="input1" value="{{$ctgv->Chuyen_nganh}}" readonly/></div></td>
+                                      <td width="400" ><input type="text" name="ma_chuyen_nganh" class="input1" value="{{$ctgv->Ten_chuyen_nganh}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
@@ -265,10 +266,11 @@
                                     <div class="tt">
                                           <td width="200"><label for="nn">Chuyên ngành <span style="color:red">*</span></label></td>
                                           <td>
-                                          <select name="chuyen_nganh" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                          <select name="ma_chuyen_nganh" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
                                               <option value="">Chọn chuyên ngành</option>
-                                              <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-                                              <option value="Ngôn ngữ Anh">Ngôn ngữ Anh</option>
+                                              @foreach ($ds_chuyen_nganh as $dscn)
+                                                <option value="{{$dscn->Ma_chuyen_nganh}}">{{$dscn->Ten_chuyen_nganh}}</option>
+                                              @endforeach
                                           </select></div>
                                         </td>
                                     </div>
@@ -334,7 +336,7 @@
                                         <td class="sorting_1">{{$dsgv->Ma_giao_vien}}</td>
                                         <td>{{$dsgv->Ten_giao_vien}}</td>
                                         <td>{{$dsgv->Hoc_vi}}</td>
-                                        <td>{{$dsgv->Chuyen_nganh}}</td>
+                                        <td>{{$dsgv->Ten_chuyen_nganh}}</td>
                                         <td class="center"><i class="icon-trash"></i><a href="quan-ly-giao-vien/xem-chi-tiet/{{$dsgv->Ma_giao_vien}}">Chi tiết</a></td>
                                         <td class="center"><i class="icon-trash"></i><a href="quan-ly-giao-vien/delete/{{$dsgv->Ma_giao_vien}}"> Xóa</a></td>
                                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="quan-ly-giao-vien/{{$dsgv->Ma_giao_vien}}">Sửa</a></td>
