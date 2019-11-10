@@ -62,8 +62,21 @@
                                           <td>
                                             <select name="ma_buoi_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
                                                 <option value="{{$ttlh->Ma_buoi_hoc}}" selected>{{$ttlh->Ten_buoi_hoc}}</option>
-                                                @foreach ($ds_buoi_hoc as $dskh)
-                                                    <option value="{{$dskh->Ma_buoi_hoc}}">{{$dskh->Ten_buoi_hoc}}</option>
+                                                @foreach ($ds_buoi_hoc as $dsbh)
+                                                    <option value="{{$dsbh->Ma_buoi_hoc}}">{{$dsbh->Ten_buoi_hoc}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                          <td width="200"><label for="nn">Phòng Học</label></td>
+                                          <td>
+                                            <select name="ma_phong_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                                <option value="{{$ttlh->Ma_phong_hoc}}" selected>{{$ttlh->Ten_phong_hoc}}</option>
+                                                @foreach ($ds_phong_hoc as $dsph)
+                                                    <option value="{{$dsph->Ma_phong_hoc}}">{{$dsph->Ten_phong_hoc}}</option>
                                                 @endforeach
                                             </select>
                                         </td>
@@ -182,6 +195,12 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
+                                        <td widht="200"><label for="nn">Phòng học </label></td>
+                                        <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_phong_hoc}}" readonly/></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
                                         <td widht="200"><label for="nn">Chứng chỉ </label></td>
                                         <td width="400" ><input type="text" name="ten_lop_hoc" class="input1" value="{{$ctlh->Ten_chung_chi}}" readonly/></td>
                                     </div>
@@ -248,6 +267,19 @@
                                               <option value="">Chọn buổi học</option>
                                               @foreach ($ds_buoi_hoc as $dsbh)
                                                 <option value="{{$dsbh->Ma_buoi_hoc}}">{{$dsbh->Ten_buoi_hoc}}</option>
+                                              @endforeach
+                                          </select></div>
+                                        </td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                          <td width="200"><label for="nn">Phòng học</label></td>
+                                          <td>
+                                          <select name="ma_phong_hoc" id="" class="input1 cbx-inp" style="width:250px; margin-left:5px">
+                                              <option value="">Chọn phòng học</option>
+                                              @foreach ($ds_phong_hoc as $dsph)
+                                                <option value="{{$dsph->Ma_phong_hoc}}">{{$dsph->Ten_phong_hoc}}</option>
                                               @endforeach
                                           </select></div>
                                         </td>

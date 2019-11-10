@@ -101,3 +101,13 @@ function loadChiTietGiaoVienXLG(){
     }
   })
 }
+
+//load table chi tiết giáo viên theo cbx giáo viên trang XEM LỊCH GIẢNG
+function layDSHocVien(){
+  $(document).ready(function(){
+    var ma_lop_hoc_xem_ds = $('#ma_lop_hoc_xem_ds').val();
+      $.get("xem-ds-hoc-vien/ajax-ma-lop-hoc/"+ma_lop_hoc_xem_ds,function(data){
+        $("table[name='table_ds_hoc_vien']").html(data);
+      })
+  })
+}

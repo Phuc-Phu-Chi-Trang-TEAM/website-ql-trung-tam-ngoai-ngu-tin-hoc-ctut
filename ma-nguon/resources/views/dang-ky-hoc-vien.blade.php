@@ -334,35 +334,15 @@
             </div><!---ket thuc nen-->
         </form>
 
-            <div class="group-box">
+            <div class="group-box" style="margin-top:20px">
                 <div align="center">
                     <div class="title ui-widget-header ui-corner-all">Danh sách học viên</div>
+                        <div class="tt" style="margin:15px">
+                          <td width="200"><label for="nn">Nhập mã lớp học</label></td>
+                          <td width="400" ><input onkeyup="layDSHocVien()" id="ma_lop_hoc_xem_ds" type="text" name="ma_lop_hoc_xem_ds" class="input1"/></div></td>
+                        </div>
                         <div class="col-sm-12 danhsach" style="font-size:16px;font-family:arial;">
-                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" border="1">
-                                <thead>
-                                    <tr align="center" role="row">
-                                        <th class="sorting_desc" style="width: 100px;">ID</th>
-                                        <th class="sorting"  style="width: 300px;">Tên học viên</th>
-                                        <th class="sorting"  style="width: 300px;">Ngày sinh</th>
-                                        <th class="sorting"  style="width: 300px;">Điện thoại</th>
-                                        <th class="sorting"  style="width: 100px;">Chi tiết</th>
-                                        <th class="sorting"  style="width: 100px;">Xóa</th>
-                                        <th class="sorting"  style="width: 100px;">Sửa</th>
-                                    </tr>
-                                </thead>
-                            <tbody>
-                                @foreach ($ds_hoc_vien as $dshv)
-                                    <tr class="gradeC odd" align="center" role="row">
-                                        <td class="sorting_1">{{$dshv->Ma_hoc_vien}}</td>
-                                        <td>{{$dshv->Ten_hoc_vien}}</td>
-                                        <td>{{$dshv->Ngay_sinh}}</td>
-                                        <td>{{$dshv->Dien_thoai}}</td>
-                                        <td class="center"><i class="icon-trash"></i><a href="dang-ky-hoc-vien/xem-chi-tiet/{{$dshv->Ma_hoc_vien}}">Chi tiết</a></td>
-                                        <td class="center"><i class="icon-trash"></i><a href="dang-ky-hoc-vien/delete/{{$dshv->Ma_hoc_vien}}"> Xóa</a></td>
-                                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="dang-ky-hoc-vien/{{$dshv->Ma_hoc_vien}}">Sửa</a></td>
-                                    </tr>
-                                @endforeach
-                             </tbody>
+                            <table name="table_ds_hoc_vien" class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" border="1">
                             </table>
                         </div>
                  </div>

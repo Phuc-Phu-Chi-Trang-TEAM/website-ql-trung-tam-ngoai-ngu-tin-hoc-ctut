@@ -23,6 +23,7 @@ class LichHocModel extends Model
                 ->join('giang_day','giang_day.Ma_lop_hoc','=','lich_hoc.Ma_lop_hoc')
                 ->join('giao_vien','giao_vien.Ma_giao_vien','=','giang_day.Ma_giao_vien')
                 ->join('buoi_hoc','buoi_hoc.Ma_buoi_hoc','=','lop_hoc.Ma_buoi_hoc')
+                ->join('phong_hoc','phong_hoc.Ma_phong_hoc','=','lop_hoc.Ma_phong_hoc')
                 ->whereMonth('lich_hoc.Ngay_hoc','=',$thang)
                 ->whereYear('lich_hoc.Ngay_hoc','=',$nam)
                 ->where('giang_day.Ma_giao_vien','=',$ma_giao_vien)
@@ -33,7 +34,9 @@ class LichHocModel extends Model
                         'lich_hoc.Ngay_hoc',
                         'lich_hoc.Thu',
                         'lop_hoc.Ma_buoi_hoc',
-                        'buoi_hoc.Ten_buoi_hoc')
+                        'buoi_hoc.Ten_buoi_hoc',
+                        'lop_hoc.Ma_lop_hoc',
+                        'phong_hoc.Ten_phong_hoc')
                 ->get();
 
         return $data;

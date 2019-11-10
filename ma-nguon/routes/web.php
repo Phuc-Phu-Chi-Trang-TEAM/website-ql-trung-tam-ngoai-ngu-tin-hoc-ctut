@@ -54,6 +54,7 @@ Route::get('dang-ky-hoc-vien/delete/{id}', 'HocVienController@layThongTinHocVien
 Route::post('dang-ky-hoc-vien','HocVienController@batSuKienClickButton');
 Route::get('dang-ky-hoc-vien/ajax-ma-chung-chi/{id}','HocVienController@loadCbxLopHoc');
 Route::get('dang-ky-hoc-vien/ajax-ma-lop-hoc/{id}','HocVienController@loadChiTietLopHoc');
+Route::get('xem-ds-hoc-vien/ajax-ma-lop-hoc/{id}','HocVienController@loadDSHocVien');
 
 //Routes phân công giảng dạy
 Route::get('phan-cong-giang-day', 'GiangDayController@layDanhSachGiangDay');

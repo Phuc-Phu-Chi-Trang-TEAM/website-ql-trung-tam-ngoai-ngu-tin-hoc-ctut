@@ -21,4 +21,19 @@ class HocVienModel extends Model
 
         return $data;
     }
+
+    public static function layDSHocVien($ma_lop_hoc){
+        $data = DB::table('hoc_vien')
+                ->join('hoc_lop','hoc_lop.Ma_hoc_vien','=','hoc_vien.Ma_hoc_vien')
+                ->join('lop_hoc','lop_hoc.Ma_lop_hoc','=','hoc_lop.Ma_lop_hoc')
+                ->where('hoc_lop.Ma_lop_hoc','=',$ma_lop_hoc)
+                ->select('hoc_vien.Ma_hoc_vien',
+                        'hoc_vien.Ten_hoc_vien',
+                        'hoc_lop.Ma_lop_hoc',
+                        'lop_hoc.Ten_lop_hoc',
+                        'hoc_vien.Ngay_sinh')
+                ->get();
+                
+        return $data;
+    }
 }

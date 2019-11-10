@@ -9,6 +9,7 @@ use App\BuoiHocModel;
 use App\KhoaHocModel;
 use App\KieuLichHocModel;
 use App\LichHocModel;
+use App\PhongHocModel;
 
 class LopHocController extends Controller
 {
@@ -17,12 +18,14 @@ class LopHocController extends Controller
         $ds_chung_chi = ChungChiModel::all();
         $ds_buoi_hoc = BuoiHocModel::all();
         $ds_khoa_hoc = KhoaHocModel::all();
+        $ds_phong_hoc = PhongHocModel::all();
         $ds_kieu_lich_hoc = KieuLichHocModel::all();
         return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
                                         'ds_chung_chi'=>$ds_chung_chi,
                                         'ds_buoi_hoc'=>$ds_buoi_hoc,
                                         'ds_khoa_hoc'=>$ds_khoa_hoc,
-                                        'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc
+                                        'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
+                                        'ds_phong_hoc'=>$ds_phong_hoc
                                         ]);
     }
 
@@ -53,7 +56,8 @@ class LopHocController extends Controller
             'ma_chung_chi'=>'required',
             'ngay_khai_giang'=>'required',
             'ngay_be_giang'=>'required',
-            'ma_kieu_lich_hoc'=>'required'],
+            'ma_kieu_lich_hoc'=>'required',
+            'ma_phong_hoc'=>'required'],
 
             ['ten_lop_hoc.required'=>"Bạn chưa nhập tên lớp học",
             'ma_khoa_hoc.required'=>"Bạn chưa chọn khóa học",
@@ -61,7 +65,8 @@ class LopHocController extends Controller
             'ma_chung_chi.required'=>"Bạn chưa chọn chứng chỉ",
             'ngay_khai_giang.required'=>"Bạn chưa nhập ngày khai giảng",
             'ngay_be_giang.required'=>"Bạn chưa nhập ngày bế giảng",
-            'ma_kieu_lich_hoc.required'=>"Bạn chưa chọn lịch học"]
+            'ma_kieu_lich_hoc.required'=>"Bạn chưa chọn lịch học",
+            'ma_phong_hoc.required'=>"Bạn chưa chọn phòng học"]
         );
 
         $lop_hoc = new LopHocModel;
@@ -74,6 +79,7 @@ class LopHocController extends Controller
         $lop_hoc->ngay_khai_giang = $request->ngay_khai_giang;
         $lop_hoc->ngay_be_giang = $request->ngay_be_giang;
         $lop_hoc->ma_kieu_lich_hoc = $request->ma_kieu_lich_hoc;
+        $lop_hoc->ma_phong_hoc = $request->ma_phong_hoc;
         $lop_hoc->save();
 
         $ma_lop_hoc_vua_them = LopHocModel::layMaLopHocLonNhat();
@@ -87,12 +93,14 @@ class LopHocController extends Controller
         $ds_buoi_hoc = BuoiHocModel::all();
         $ds_khoa_hoc = KhoaHocModel::all();
         $ds_kieu_lich_hoc = KieuLichHocModel::all();
+        $ds_phong_hoc = PhongHocModel::all();
         return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
                                         'ds_chung_chi'=>$ds_chung_chi,
                                         'ds_buoi_hoc'=>$ds_buoi_hoc,
                                         'ds_khoa_hoc'=>$ds_khoa_hoc,
                                         'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
-                                        'thong_tin_lop_hoc'=>$thong_tin_lop_hoc
+                                        'thong_tin_lop_hoc'=>$thong_tin_lop_hoc,
+                                        'ds_phong_hoc'=>$ds_phong_hoc
                                         ]);
     }
 
@@ -117,7 +125,8 @@ class LopHocController extends Controller
             'ma_chung_chi'=>'required',
             'ngay_khai_giang'=>'required',
             'ngay_be_giang'=>'required',
-            'ma_kieu_lich_hoc'=>'required'],
+            'ma_kieu_lich_hoc'=>'required',
+            'ma_phong_hoc'=>'required'],
 
             ['ten_lop_hoc.required'=>"Bạn chưa nhập tên lớp học",
             'ma_khoa_hoc.required'=>"Bạn chưa chọn khóa học",
@@ -125,7 +134,8 @@ class LopHocController extends Controller
             'ma_chung_chi.required'=>"Bạn chưa chọn chứng chỉ",
             'ngay_khai_giang.required'=>"Bạn chưa nhập ngày khai giảng",
             'ngay_be_giang.required'=>"Bạn chưa nhập ngày bế giảng",
-            'ma_kieu_lich_hoc.required'=>"Bạn chưa chọn lịch học"]
+            'ma_kieu_lich_hoc.required'=>"Bạn chưa chọn lịch học",
+            'ma_phong_hoc.required'=>"Bạn chưa chọn phòng học"]
         );
 
         $lop_hoc=LopHocModel::where('Ma_lop_hoc','=',$request->ma_lop_hoc)->first();
@@ -138,6 +148,7 @@ class LopHocController extends Controller
         $lop_hoc->ngay_khai_giang = $request->ngay_khai_giang;
         $lop_hoc->ngay_be_giang = $request->ngay_be_giang;
         $lop_hoc->ma_kieu_lich_hoc = $request->ma_kieu_lich_hoc;
+        $lop_hoc->ma_phong_hoc = $request->ma_phong_hoc;
         $lop_hoc->save();
 
         LichHocModel::xoaLichHoc($request->ma_lop_hoc);

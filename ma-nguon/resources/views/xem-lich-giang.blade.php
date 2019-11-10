@@ -129,6 +129,7 @@
                                         <th class="sorting_desc" style="width: 200px;">Ngày</th>
                                         <th class="sorting"  style="width: 150px;">Thứ</th>
                                         <th class="sorting"  style="width: 150px;">Buổi</th>
+                                        <th class="sorting"  style="width: 100px;">Phòng</th>
                                         <th class="sorting"  style="width: 400px;">Lớp</th>
                                         <th class="sorting"  style="width: 400px;">Giáo viên</th>
                                     </tr>
@@ -139,6 +140,7 @@
                                         <td class="sorting_1">{{$lg->Ngay_hoc}}</td>
                                         <td>Thứ {{$lg->Thu}}</td>
                                         <td>{{$lg->Ten_buoi_hoc}}</td>
+                                        <td>{{$lg->Ten_phong_hoc}}</td>
                                         <td>{{$lg->Ten_lop_hoc}}</td>
                                         <td>({{$lg->Ma_giao_vien}}) {{$lg->Ten_giao_vien}}</td>
                                     </tr>

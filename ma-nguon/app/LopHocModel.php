@@ -25,6 +25,7 @@ class LopHocModel extends Model
                 ->join('chung_chi','chung_chi.Ma_chung_chi','=','lop_hoc.Ma_chung_chi')
                 ->join('buoi_hoc','buoi_hoc.Ma_buoi_hoc','=','lop_hoc.Ma_buoi_hoc')
                 ->join('kieu_lich_hoc','kieu_lich_hoc.Ma_kieu_lich_hoc','=','lop_hoc.Ma_kieu_lich_hoc')
+                ->join('phong_hoc','phong_hoc.Ma_phong_hoc','=','lop_hoc.Ma_phong_hoc')
                 ->where('Ma_lop_hoc',$id)
                 ->select('Ma_lop_hoc',
                         'Ten_lop_hoc',
@@ -39,7 +40,9 @@ class LopHocModel extends Model
                         'lop_hoc.Ma_kieu_lich_hoc',
                         'kieu_lich_hoc.Ten_kieu_lich_hoc',
                         'Ngay_khai_giang',
-                        'Ngay_be_giang')
+                        'Ngay_be_giang',
+                        'lop_hoc.Ma_phong_hoc',
+                        'phong_hoc.Ten_phong_hoc')
                 ->get();
 
         return $data;

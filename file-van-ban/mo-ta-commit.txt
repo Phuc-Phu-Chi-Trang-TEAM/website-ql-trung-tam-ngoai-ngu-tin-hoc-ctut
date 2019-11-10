@@ -176,3 +176,11 @@ Thoi gian: 02:12 10/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module xem lich giang
 -----------------------------------------------------------------
+Lan 23:
+Ten commit: bakup lan 23
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 14:39 10/11/2019
+Noi dung da thuc hien tren du an:
+	---Sua doi csdl
+	---Sua doi module quan ly hoc vien
+-----------------------------------------------------------------
