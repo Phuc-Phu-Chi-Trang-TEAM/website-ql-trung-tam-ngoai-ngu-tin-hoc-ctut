@@ -106,7 +106,7 @@ class HocVienController extends Controller
                             <td class="center"><i class="icon-trash"></i><a href="dang-ky-hoc-vien/delete/'.$dshv->Ma_hoc_vien.'"> Xóa</a></td>
                             <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="dang-ky-hoc-vien/'.$dshv->Ma_hoc_vien.'">Sửa</a></td>
                         </tr>';
-                }
+            }
         }
     }
 
@@ -146,7 +146,7 @@ class HocVienController extends Controller
     }
     
     protected function layThongTinHocVien($id){
-        $thong_tin_hoc_vien = HocVienModel::where('Ma_hoc_vien',$id)->get();
+        $thong_tin_hoc_vien = HocVienModel::layThongTinHocVien($id);
         $ds_chung_chi = ChungChiModel::all();
         $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
         return view ('dang-ky-hoc-vien',['thong_tin_hoc_vien'=>$thong_tin_hoc_vien,
@@ -155,7 +155,7 @@ class HocVienController extends Controller
     }
 
     protected function chiTietHocVien($id){
-        $chi_tiet_hoc_vien = HocVienModel::where('Ma_hoc_vien',$id)->get();
+        $chi_tiet_hoc_vien = HocVienModel::layThongTinHocVien($id);
         return view ('dang-ky-hoc-vien',['chi_tiet_hoc_vien'=>$chi_tiet_hoc_vien]);
     }
 
@@ -186,13 +186,15 @@ class HocVienController extends Controller
         $hoc_vien->ngay_sinh = $request->ngay_sinh;
         $hoc_vien->noi_sinh = $request->noi_sinh;
         $hoc_vien->cmnd = $request->cmnd;
-        $hoc_vien->hoc_vi = $request->hoc_vi;
-        $hoc_vien->chuyen_nganh = $request->chuyen_nganh;
         $hoc_vien->dia_chi = $request->dia_chi;
         $hoc_vien->dien_thoai = $request->dien_thoai;
         $hoc_vien->email = $request->email;
         $hoc_vien->ghi_chu = $request->ghi_chu;
         $hoc_vien->save();
+
+        $hoc_lop=HocLopModel::where('Ma_hoc_vien','=',$request->ma_hoc_vien)->first();
+        $hoc_lop->ma_lop_hoc = $request->ma_lop_hoc;
+        $hoc_lop->save();
     }
 
     protected function xoaHocVien($request){

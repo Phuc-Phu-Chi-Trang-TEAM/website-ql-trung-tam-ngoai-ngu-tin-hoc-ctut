@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 10, 2019 lúc 08:38 AM
+-- Thời gian đã tạo: Th10 10, 2019 lúc 10:00 AM
 -- Phiên bản máy phục vụ: 10.1.33-MariaDB
 -- Phiên bản PHP: 7.2.6
 
@@ -167,7 +167,6 @@ CREATE TABLE `hoc_lop` (
 --
 
 INSERT INTO `hoc_lop` (`Ma_hoc_vien`, `Ma_lop_hoc`) VALUES
-('1', '1'),
 ('13', '1'),
 ('2', '3'),
 ('3', '13');
@@ -176,12 +175,25 @@ INSERT INTO `hoc_lop` (`Ma_hoc_vien`, `Ma_lop_hoc`) VALUES
 -- Bẫy `hoc_lop`
 --
 DELIMITER $$
+CREATE TRIGGER `after_delete_hoc_lop` AFTER DELETE ON `hoc_lop` FOR EACH ROW BEGIN
+UPDATE lop_hoc SET So_luong_hoc_vien = So_luong_hoc_vien -1 WHERE Ma_lop_hoc = old.Ma_lop_hoc;
+END
+$$
+DELIMITER ;
+DELIMITER $$
 CREATE TRIGGER `after_insert_hoc_lop` AFTER INSERT ON `hoc_lop` FOR EACH ROW BEGIN
 UPDATE lop_hoc
 SET
 	So_luong_hoc_vien = So_luong_hoc_vien +1
 WHERE
 	lop_hoc.Ma_lop_hoc = new.Ma_lop_hoc;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_update_hoc_lop` AFTER UPDATE ON `hoc_lop` FOR EACH ROW BEGIN
+UPDATE lop_hoc SET So_luong_hoc_vien = So_luong_hoc_vien -1 WHERE Ma_lop_hoc = old.Ma_lop_hoc;
+UPDATE lop_hoc SET So_luong_hoc_vien = So_luong_hoc_vien +1 WHERE Ma_lop_hoc = new.Ma_lop_hoc;
 END
 $$
 DELIMITER ;
@@ -220,9 +232,18 @@ CREATE TABLE `hoc_vien` (
 --
 
 INSERT INTO `hoc_vien` (`Ma_hoc_vien`, `Ten_hoc_vien`, `Ngay_sinh`, `Noi_sinh`, `CMND`, `Dia_chi`, `Dien_thoai`, `Email`, `Ghi_chu`) VALUES
-(1, 'Nguyễn Hoàng Phúc', '1998-12-12', 'Kiên Giang', '97857645', NULL, NULL, NULL, NULL),
 (2, 'Dương Thị Thùy Trang', '1998-12-12', 'Cần Thơ', '875747906', NULL, NULL, NULL, NULL),
 (3, 'Lư Huỳnh Tấn Phú', '1998-01-01', 'Kiên Giang', '574786979', NULL, NULL, NULL, NULL);
+
+--
+-- Bẫy `hoc_vien`
+--
+DELIMITER $$
+CREATE TRIGGER `before_delete_hoc_vien` BEFORE DELETE ON `hoc_vien` FOR EACH ROW BEGIN
+DELETE FROM hoc_lop WHERE Ma_hoc_vien = old.Ma_hoc_vien;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -506,7 +527,7 @@ CREATE TABLE `lop_hoc` (
 INSERT INTO `lop_hoc` (`Ma_lop_hoc`, `Ten_lop_hoc`, `So_luong_hoc_vien`, `Ghi_chu`, `Ma_khoa_hoc`, `Ma_buoi_hoc`, `Ma_chung_chi`, `Ngay_khai_giang`, `Ngay_be_giang`, `Ma_kieu_lich_hoc`, `Ma_phong_hoc`) VALUES
 (1, 'Lớp Toeic 450+  1 (11/2019)', 2, NULL, 1, 1, 2, '2019-11-10', '2020-01-10', 1, 1),
 (2, 'Lớp Toeic 450+  1 (8/2019)', 1, NULL, 1, 1, 2, '2019-08-10', '2019-10-10', 2, 1),
-(3, 'Lớp Toeic 450+  2 (11/2019)', 2, NULL, 1, 1, 2, '2019-11-10', '2020-01-10', 2, 1),
+(3, 'Lớp Toeic 450+  2 (11/2019)', 1, NULL, 1, 1, 2, '2019-11-10', '2020-01-10', 2, 1),
 (4, 'Lớp Toeic 550+ 1 (11/2019)', 0, NULL, 2, 1, 2, '2019-11-10', '2020-01-10', 1, 1),
 (5, 'Lớp Toeic 550+ 2 (11/2019)', 0, NULL, 2, 1, 2, '2019-11-10', '2019-01-10', 1, 1),
 (6, 'Lớp Toeic 550+ 3 (11/2019)', 0, NULL, 2, 1, 2, '2019-11-10', '2019-01-10', 2, 1),

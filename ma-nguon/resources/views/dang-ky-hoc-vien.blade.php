@@ -33,50 +33,50 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                      <td width="200"><label for="nn">Tên học viên <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="ten_hoc_vien" class="input1"/></div></td>
+                                        <td width="200"><label for="nn">Tên học viên <span style="color:red">*</span></label></td>
+                                        <td width="400" ><input type="text" name="ten_hoc_vien" class="input1" value="{{$tthv->Ten_hoc_vien}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ngày sinh <span style="color:red">*</span></label></td>
-                                      <td width="400"><input style="width:250px; margin-left:5px" type="date" name="ngay_sinh" class="input1"/></div></td>
+                                      <td width="400"><input style="width:250px; margin-left:5px" type="date" name="ngay_sinh" class="input1" value="{{$tthv->Ngay_sinh}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Nơi sinh <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="noi_sinh" class="input1"/></div></td>
+                                      <td width="400" ><input type="text" name="noi_sinh" class="input1" value="{{$tthv->Noi_sinh}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">CMND <span style="color:red">*</span></label></td>
-                                      <td width="400" ><input type="text" name="cmnd" class="input1"/></div></td>
+                                      <td width="400" ><input type="text" name="cmnd" class="input1" value="{{$tthv->CMND}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Địa chỉ</label></td>
-                                      <td width="400" ><input type="text" name="dia_chi" class="input1"/></div></td>
+                                      <td width="400" ><input type="text" name="dia_chi" class="input1" value="{{$tthv->Dia_chi}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Điện thoại</label></td>
-                                      <td width="400" ><input type="text" name="dien_thoai" class="input1"/></div></td>
+                                      <td width="400" ><input type="text" name="dien_thoai" class="input1" value="{{$tthv->Dien_thoai}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Email</label></td>
-                                      <td width="400" ><input style="width:250px; margin-left:5px" type="email" name="email" class="input1"/></div></td>
+                                      <td width="400" ><input style="width:250px; margin-left:5px" type="email" name="email" class="input1" value="{{$tthv->Email}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ghi chú</label></td>
-                                      <td width="400" ><input type="text" name="ghi_chu" class="input1"/></div></td>
+                                      <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$tthv->Ghi_chu}}"/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
@@ -102,7 +102,7 @@
                                         <td width="200"><label for="nn">Lớp học <span style="color:red">*</span></label></td>
                                         <td>
                                             <select onchange="loadChiTietLopHoc()" id="cbx_lop_hoc" name="ma_lop_hoc" class="input1 cbx-inp" style="width:250px; margin-left:5px">
-                                                <option value="">Chọn lớp học</option>
+                                                <option value="{{$tthv->Ma_lop_hoc}}" selected>({{$tthv->Ma_lop_hoc}}) {{$tthv->Ten_lop_hoc}}</option>
                                                 @foreach ($ds_lop_hoc as $dslh)
                                                     <option value="{{$dslh->Ma_lop_hoc}}">({{$dslh->Ma_lop_hoc}}) {{$dslh->Ten_lop_hoc}}</option>
                                                 @endforeach
@@ -216,6 +216,12 @@
                                     <div class="tt">
                                       <td width="200"><label for="nn">Ghi chú</label></td>
                                       <td width="400" ><input type="text" name="ghi_chu" class="input1" value="{{$cthv->Ghi_chu}}" readonly/></div></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="tt">
+                                      <td width="200"><label for="nn">Lớp</label></td>
+                                      <td width="400" ><input type="text" name="ghi_chu" class="input1" value="({{$cthv->Ma_lop_hoc}}) {{$cthv->Ten_lop_hoc}}" readonly/></div></td>
                                     </div>
                                 </tr>
                                 <tr>
