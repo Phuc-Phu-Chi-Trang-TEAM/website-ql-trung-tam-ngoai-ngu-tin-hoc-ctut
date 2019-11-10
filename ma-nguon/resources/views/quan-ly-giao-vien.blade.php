@@ -317,8 +317,12 @@
             <div class="group-box">
                 <div align="center">
                     <div class="title ui-widget-header ui-corner-all">Danh sách giáo viên</div>
+                    <div class="tt">
+                        <td width="200"><label for="nn">Từ khóa tìm kiếm</label></td>
+                        <td width="400" ><input type="text" onkeyup="layDSGV_QLGV()" name="tu_khoa_tim_kiem" id="tu_khoa_tim_kiem" class="input1"/></div></td>
+                    </div>
                         <div class="col-sm-12 danhsach" style="font-size:16px;font-family:arial;">
-                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" border="1">
+                            <table name="table_DSGV" class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" border="1">
                                 <thead>
                                     <tr align="center" role="row">
                                         <th class="sorting_desc" style="width: 100px;">ID</th>

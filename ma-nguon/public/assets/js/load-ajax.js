@@ -111,3 +111,13 @@ function layDSHocVien(){
       })
   })
 }
+
+//load table chi tiết giáo viên theo cbx giáo viên trang QUẢN LÝ GIÁO VIÊN
+function layDSGV_QLGV(){
+  $(document).ready(function(){
+    var tu_khoa = $('#tu_khoa_tim_kiem').val();
+      $.get("ds-giao-vien/ajax-tu-khoa/"+tu_khoa,function(data){
+        $("table[name='table_DSGV']").html(data);
+      })
+  })
+}

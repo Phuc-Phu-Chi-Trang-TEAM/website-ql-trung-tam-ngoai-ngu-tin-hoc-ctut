@@ -44,4 +44,18 @@ class GiaoVienModel extends Model
 
         return $data;
     }
+
+    public static function timKiemGV($tu_khoa){
+        $tu_khoa = '%'.$tu_khoa.'%';
+        $data = DB::table('giao_vien')
+                ->join('chuyen_nganh','chuyen_nganh.Ma_chuyen_nganh','=','giao_vien.Ma_chuyen_nganh')
+                ->where('Ma_giao_vien','like',$tu_khoa)
+                ->orWhere('Ten_giao_vien','like',$tu_khoa)
+                ->orWhere('Ten_chuyen_nganh','like',$tu_khoa)
+                ->orWhere('Hoc_vi','like',$tu_khoa)
+                ->select('Ma_giao_vien','Ten_giao_vien','Ten_chuyen_nganh','Hoc_vi')
+                ->get();
+
+        return $data;
+    }
 }
