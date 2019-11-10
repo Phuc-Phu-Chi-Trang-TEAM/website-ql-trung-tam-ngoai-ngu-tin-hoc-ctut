@@ -8,8 +8,14 @@ use App\ChungChiModel;
 class ChungChiController extends Controller
 {
     protected function layDanhSachChungChi(){
-        $ds_chung_chi = ChungChiModel::all();
-        return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_chung_chi = ChungChiModel::all();
+            return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -45,15 +51,27 @@ class ChungChiController extends Controller
     }
     
     protected function layThongTinChungChi($id){
-        $thong_tin_chung_chi = ChungChiModel::where('Ma_chung_chi',$id)->get();
-        $ds_chung_chi = ChungChiModel::all();
-        return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi'=>$thong_tin_chung_chi]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_chung_chi = ChungChiModel::where('Ma_chung_chi',$id)->get();
+            $ds_chung_chi = ChungChiModel::all();
+            return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi'=>$thong_tin_chung_chi,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinChungChiCanXoa($id){
-        $thong_tin_chung_chi_xoa = ChungChiModel::where('Ma_chung_chi',$id)->get();
-        $ds_chung_chi = ChungChiModel::all();
-        return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi_xoa'=>$thong_tin_chung_chi_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_chung_chi_xoa = ChungChiModel::where('Ma_chung_chi',$id)->get();
+            $ds_chung_chi = ChungChiModel::all();
+            return view ('quan-ly-chung-chi',['ds_chung_chi'=>$ds_chung_chi,'thong_tin_chung_chi_xoa'=>$thong_tin_chung_chi_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinChungChi($request){

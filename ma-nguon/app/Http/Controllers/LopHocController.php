@@ -14,19 +14,26 @@ use App\PhongHocModel;
 class LopHocController extends Controller
 {
     protected function layDanhSachLopHoc(){
-        $ds_lop_hoc = LopHocModel::all();
-        $ds_chung_chi = ChungChiModel::all();
-        $ds_buoi_hoc = BuoiHocModel::all();
-        $ds_khoa_hoc = KhoaHocModel::all();
-        $ds_phong_hoc = PhongHocModel::all();
-        $ds_kieu_lich_hoc = KieuLichHocModel::all();
-        return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
-                                        'ds_chung_chi'=>$ds_chung_chi,
-                                        'ds_buoi_hoc'=>$ds_buoi_hoc,
-                                        'ds_khoa_hoc'=>$ds_khoa_hoc,
-                                        'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
-                                        'ds_phong_hoc'=>$ds_phong_hoc
-                                        ]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_lop_hoc = LopHocModel::all();
+            $ds_chung_chi = ChungChiModel::all();
+            $ds_buoi_hoc = BuoiHocModel::all();
+            $ds_khoa_hoc = KhoaHocModel::all();
+            $ds_phong_hoc = PhongHocModel::all();
+            $ds_kieu_lich_hoc = KieuLichHocModel::all();
+            return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
+                                            'ds_chung_chi'=>$ds_chung_chi,
+                                            'ds_buoi_hoc'=>$ds_buoi_hoc,
+                                            'ds_khoa_hoc'=>$ds_khoa_hoc,
+                                            'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
+                                            'ds_phong_hoc'=>$ds_phong_hoc,
+                                            'username'=>$username
+                                            ]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -87,33 +94,52 @@ class LopHocController extends Controller
     }
     
     protected function layThongTinLopHoc($id){
-        $thong_tin_lop_hoc = LopHocModel::lienKetDuLieu($id);
-        $ds_lop_hoc = LopHocModel::all();
-        $ds_chung_chi = ChungChiModel::all();
-        $ds_buoi_hoc = BuoiHocModel::all();
-        $ds_khoa_hoc = KhoaHocModel::all();
-        $ds_kieu_lich_hoc = KieuLichHocModel::all();
-        $ds_phong_hoc = PhongHocModel::all();
-        return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
-                                        'ds_chung_chi'=>$ds_chung_chi,
-                                        'ds_buoi_hoc'=>$ds_buoi_hoc,
-                                        'ds_khoa_hoc'=>$ds_khoa_hoc,
-                                        'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
-                                        'thong_tin_lop_hoc'=>$thong_tin_lop_hoc,
-                                        'ds_phong_hoc'=>$ds_phong_hoc
-                                        ]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_lop_hoc = LopHocModel::lienKetDuLieu($id);
+            $ds_lop_hoc = LopHocModel::all();
+            $ds_chung_chi = ChungChiModel::all();
+            $ds_buoi_hoc = BuoiHocModel::all();
+            $ds_khoa_hoc = KhoaHocModel::all();
+            $ds_kieu_lich_hoc = KieuLichHocModel::all();
+            $ds_phong_hoc = PhongHocModel::all();
+            return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,
+                                            'ds_chung_chi'=>$ds_chung_chi,
+                                            'ds_buoi_hoc'=>$ds_buoi_hoc,
+                                            'ds_khoa_hoc'=>$ds_khoa_hoc,
+                                            'ds_kieu_lich_hoc'=>$ds_kieu_lich_hoc,
+                                            'thong_tin_lop_hoc'=>$thong_tin_lop_hoc,
+                                            'ds_phong_hoc'=>$ds_phong_hoc,
+                                            'username'=>$username
+                                            ]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function chiTietLopHoc($id){
-        $chi_tiet_lop_hoc = LopHocModel::lienKetDuLieu($id);
-        $ds_lop_hoc = LopHocModel::all();
-        return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,'chi_tiet_lop_hoc'=>$chi_tiet_lop_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $chi_tiet_lop_hoc = LopHocModel::lienKetDuLieu($id);
+            $ds_lop_hoc = LopHocModel::all();
+            return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,'chi_tiet_lop_hoc'=>$chi_tiet_lop_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinLopHocCanXoa($id){
-        $thong_tin_lop_hoc_xoa = LopHocModel::where('Ma_lop_hoc',$id)->get();
-        $ds_lop_hoc = LopHocModel::all();
-        return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,'thong_tin_lop_hoc_xoa'=>$thong_tin_lop_hoc_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_lop_hoc_xoa = LopHocModel::where('Ma_lop_hoc',$id)->get();
+            $ds_lop_hoc = LopHocModel::all();
+            return view ('quan-ly-lop-hoc',['ds_lop_hoc'=>$ds_lop_hoc,'thong_tin_lop_hoc_xoa'=>$thong_tin_lop_hoc_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinLopHoc($request){

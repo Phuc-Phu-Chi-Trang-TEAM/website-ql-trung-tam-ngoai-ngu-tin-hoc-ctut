@@ -8,8 +8,14 @@ use App\KhoaHocModel;
 class KhoaHocController extends Controller
 {
     protected function layDanhSachKhoaHoc(){
-        $ds_khoa_hoc = KhoaHocModel::all();
-        return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_khoa_hoc = KhoaHocModel::all();
+            return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -44,15 +50,27 @@ class KhoaHocController extends Controller
     }
     
     protected function layThongTinKhoaHoc($id){
-        $thong_tin_khoa_hoc = KhoaHocModel::where('Ma_khoa_hoc',$id)->get();
-        $ds_khoa_hoc = KhoaHocModel::all();
-        return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc,'thong_tin_khoa_hoc'=>$thong_tin_khoa_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_khoa_hoc = KhoaHocModel::where('Ma_khoa_hoc',$id)->get();
+            $ds_khoa_hoc = KhoaHocModel::all();
+            return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc,'thong_tin_khoa_hoc'=>$thong_tin_khoa_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinKhoaHocCanXoa($id){
-        $thong_tin_khoa_hoc_xoa = KhoaHocModel::where('Ma_khoa_hoc',$id)->get();
-        $ds_khoa_hoc = KhoaHocModel::all();
-        return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc,'thong_tin_khoa_hoc_xoa'=>$thong_tin_khoa_hoc_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_khoa_hoc_xoa = KhoaHocModel::where('Ma_khoa_hoc',$id)->get();
+            $ds_khoa_hoc = KhoaHocModel::all();
+            return view ('quan-ly-khoa-hoc',['ds_khoa_hoc'=>$ds_khoa_hoc,'thong_tin_khoa_hoc_xoa'=>$thong_tin_khoa_hoc_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinKhoaHoc($request){

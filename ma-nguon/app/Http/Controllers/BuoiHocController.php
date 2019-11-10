@@ -8,8 +8,14 @@ use App\BuoiHocModel;
 class BuoiHocController extends Controller
 {
     protected function layDanhSachBuoiHoc(){
-        $ds_buoi_hoc = BuoiHocModel::all();
-        return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_buoi_hoc = BuoiHocModel::all();
+            return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -44,15 +50,27 @@ class BuoiHocController extends Controller
     }
     
     protected function layThongTinBuoiHoc($id){
-        $thong_tin_buoi_hoc = BuoiHocModel::where('Ma_buoi_hoc',$id)->get();
-        $ds_buoi_hoc = BuoiHocModel::all();
-        return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc,'thong_tin_buoi_hoc'=>$thong_tin_buoi_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_buoi_hoc = BuoiHocModel::where('Ma_buoi_hoc',$id)->get();
+            $ds_buoi_hoc = BuoiHocModel::all();
+            return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc,'thong_tin_buoi_hoc'=>$thong_tin_buoi_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinBuoiHocCanXoa($id){
-        $thong_tin_buoi_hoc_xoa = BuoiHocModel::where('Ma_buoi_hoc',$id)->get();
-        $ds_buoi_hoc = BuoiHocModel::all();
-        return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc,'thong_tin_buoi_hoc_xoa'=>$thong_tin_buoi_hoc_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_buoi_hoc_xoa = BuoiHocModel::where('Ma_buoi_hoc',$id)->get();
+            $ds_buoi_hoc = BuoiHocModel::all();
+            return view ('quan-ly-buoi-hoc',['ds_buoi_hoc'=>$ds_buoi_hoc,'thong_tin_buoi_hoc_xoa'=>$thong_tin_buoi_hoc_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinBuoiHoc($request){

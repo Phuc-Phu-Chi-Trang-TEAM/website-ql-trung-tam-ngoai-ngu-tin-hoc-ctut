@@ -12,16 +12,23 @@ use App\ChuyenNganhModel;
 class GiangDayController extends Controller
 {
     protected function layDanhSachGiangDay(){
-        $ds_giang_day = GiangDayModel::layDSGiangDay();
-        $ds_chung_chi = ChungChiModel::all();
-        $ds_lop_hoc = GiangDayModel::layDSLopHocChuaPhanCong();
-        $ds_giao_vien = GiaoVienModel::all();
-        $ds_chuyen_nganh = ChuyenNganhModel::all();
-        return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,
-                                        'ds_chung_chi'=>$ds_chung_chi,
-                                        'ds_lop_hoc'=>$ds_lop_hoc,
-                                        'ds_giao_vien'=>$ds_giao_vien,
-                                        'ds_chuyen_nganh'=>$ds_chuyen_nganh]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_giang_day = GiangDayModel::layDSGiangDay();
+            $ds_chung_chi = ChungChiModel::all();
+            $ds_lop_hoc = GiangDayModel::layDSLopHocChuaPhanCong();
+            $ds_giao_vien = GiaoVienModel::all();
+            $ds_chuyen_nganh = ChuyenNganhModel::all();
+            return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,
+                                            'ds_chung_chi'=>$ds_chung_chi,
+                                            'ds_lop_hoc'=>$ds_lop_hoc,
+                                            'ds_giao_vien'=>$ds_giao_vien,
+                                            'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -121,29 +128,48 @@ class GiangDayController extends Controller
     }
     
     protected function layThongTinGiangDay($id){
-        $thong_tin_lop_hoc = LopHocModel::lienKetDuLieu($id);
-        $ma_giao_vien = GiangDayModel::layMaGVGD($id);
-        $thong_tin_giao_vien = GiaoVienModel::layTTGiaoVien($ma_giao_vien->Ma_giao_vien);
-        $ds_giang_day = GiangDayModel::layDSGiangDay();
-        $ds_chuyen_nganh = ChuyenNganhModel::all();
-        $ds_giao_vien = GiaoVienModel::all();
-        return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,
-                                        'thong_tin_lop_hoc'=>$thong_tin_lop_hoc,
-                                        'thong_tin_giao_vien'=>$thong_tin_giao_vien,
-                                        'ds_chuyen_nganh'=>$ds_chuyen_nganh,
-                                        'ds_giao_vien'=>$ds_giao_vien]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_lop_hoc = LopHocModel::lienKetDuLieu($id);
+            $ma_giao_vien = GiangDayModel::layMaGVGD($id);
+            $thong_tin_giao_vien = GiaoVienModel::layTTGiaoVien($ma_giao_vien->Ma_giao_vien);
+            $ds_giang_day = GiangDayModel::layDSGiangDay();
+            $ds_chuyen_nganh = ChuyenNganhModel::all();
+            $ds_giao_vien = GiaoVienModel::all();
+            return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,
+                                            'thong_tin_lop_hoc'=>$thong_tin_lop_hoc,
+                                            'thong_tin_giao_vien'=>$thong_tin_giao_vien,
+                                            'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                            'ds_giao_vien'=>$ds_giao_vien,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function chiTietGiangDay($id){
-        $chi_tiet_giang_day = GiangDayModel::where('Ma_giang_day',$id)->get();
-        $ds_giang_day = GiangDayModel::all();
-        return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,'chi_tiet_giang_day'=>$chi_tiet_giang_day]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $chi_tiet_giang_day = GiangDayModel::where('Ma_giang_day',$id)->get();
+            $ds_giang_day = GiangDayModel::all();
+            return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,'chi_tiet_giang_day'=>$chi_tiet_giang_day,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinGiangDayCanXoa($id){
-        $thong_tin_giang_day_xoa = GiangDayModel::where('Ma_giang_day',$id)->get();
-        $ds_giang_day = GiangDayModel::all();
-        return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,'thong_tin_giang_day_xoa'=>$thong_tin_giang_day_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_giang_day_xoa = GiangDayModel::where('Ma_giang_day',$id)->get();
+            $ds_giang_day = GiangDayModel::all();
+            return view ('phan-cong-giang-day',['ds_giang_day'=>$ds_giang_day,'thong_tin_giang_day_xoa'=>$thong_tin_giang_day_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinGiangDay($request){

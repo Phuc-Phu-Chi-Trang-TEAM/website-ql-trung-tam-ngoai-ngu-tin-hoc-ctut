@@ -28,11 +28,11 @@
 		
 		<div id="nav"> 
 		<div  id="menu" > 
-			<a href="">Trang chủ</a> |  
-			<a href="">Giới thiệu</a>	|
-			<a href="">Tin tức - Sự kiện</a>  | 
-			<a href="">Quản lý trung tâm Ngoại ngữ - Tin học</a>  | 
-			<a href="">Tuyển sinh</a>		 
+			<a href="trang-chu">Trang chủ</a> |  
+			<a href="trang-chu">Giới thiệu</a>	|
+			<a href="trang-chu">Tin tức - Sự kiện</a>  | 
+			<a href="trang-chu">Quản lý trung tâm Ngoại ngữ - Tin học</a>  | 
+			<a href="trang-chu">Tuyển sinh</a>		 
 		</div>		 
 		<!-- <div  id="login" > 
 			<?php 
@@ -53,27 +53,31 @@
 		<div id="contentWrapper" > 
 			<div id="leftSide" > 
 				<div class="group-box" id="danhmuc"> 
-						<div class="title ui-widget-header ui-corner-all">DANH MỤC</div>  
+						<div class="title ui-widget-header ui-corner-all">Menu 1</div>  
 						<div class="group-box-content">
-							<ul>								
-								<li> <a href="">Đăng nhập</a> </li>
-								<li> <a href="">Quản lý người dùng</a> </li>
-								<li> <a href="">Quản lý khóa học</a> </li>
-								<li> <a href="">Quản lý lớp học</a> </li>
-								<li> <a href="">Quản lý buổi học</a> </li>
-								<li> <a href="">Quản lý giáo viên</a> </li>
+							<ul>
+								@if (isset($username))
+								<li style="font-weight:normal">Xin chào <b>{{$username}}</b></li>
+								@endif								
+								<li> <a href="dang-xuat">Đăng xuất</a> </li>
+								<li> <a href="quan-ly-nguoi-dung">Quản lý người dùng</a> </li>
+								<li> <a href="dang-ky-hoc-vien">Đăng ký học viên</a> </li>
+								<li> <a href="quan-ly-giao-vien">Quản lý giáo viên</a> </li>
+								<li> <a href="phan-cong-giang-day">Phân công giảng dạy</a> </li>
+								<li> <a href="xem-lich-giang">Xem lịch giảng</a> </li>
 							</ul>						
 						</div>						
 				</div>
 				<div class="group-box"> 
-						<div class="title ui-widget-header ui-corner-all">Menu</div> 
+						<div class="title ui-widget-header ui-corner-all">Menu 2</div> 
 						<div class="group-box-content">
 						<ul>							
-							<li> <a href="">Quản lý phòng học</a> </li>
-							<li> <a href="">Quản lý chứng chỉ</a> </li>
-							<li> <a href="">Phân công giảng dạy</a> </li>
-							<li> <a href="">Xem lịch giảng</a> </li>
-							<li> <a href="">Đăng ký học viên</a> </li>
+							<li> <a href="quan-ly-phong-hoc">Quản lý phòng học</a> </li>
+							<li> <a href="quan-ly-buoi-hoc">Quản lý buổi học</a> </li>
+							<li> <a href="quan-ly-chung-chi">Quản lý chứng chỉ</a> </li>
+							<li> <a href="quan-ly-khoa-hoc">Quản lý khóa học</a> </li>
+							<li> <a href="quan-ly-lop-hoc">Quản lý lớp học</a> </li>
+							
 						</ul>						
 						</div>						
 				</div>
@@ -87,7 +91,7 @@
 
 </div> <!-- End of Content Wrapper -->
 	<div id="footer"> 
-	Copyright &copy; 2019 by PPCT Team
+	Copyright &copy; 2019 by PPCT Team | Design by Phúc-Phú-Chí-Trang
 	</div>	
 </div> <!-- End of pageWrapper -->
 </body>

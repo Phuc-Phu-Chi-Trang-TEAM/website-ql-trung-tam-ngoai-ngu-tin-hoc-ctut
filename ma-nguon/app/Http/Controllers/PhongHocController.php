@@ -8,8 +8,14 @@ use App\PhongHocModel;
 class PhongHocController extends Controller
 {
     protected function layDanhSachPhongHoc(){
-        $ds_phong_hoc = PhongHocModel::all();
-        return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_phong_hoc = PhongHocModel::all();
+            return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -44,15 +50,27 @@ class PhongHocController extends Controller
     }
     
     protected function layThongTinPhongHoc($id){
-        $thong_tin_phong_hoc = PhongHocModel::where('Ma_phong_hoc',$id)->get();
-        $ds_phong_hoc = PhongHocModel::all();
-        return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'thong_tin_phong_hoc'=>$thong_tin_phong_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_phong_hoc = PhongHocModel::where('Ma_phong_hoc',$id)->get();
+            $ds_phong_hoc = PhongHocModel::all();
+            return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'thong_tin_phong_hoc'=>$thong_tin_phong_hoc,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinPhongHocCanXoa($id){
-        $thong_tin_phong_hoc_xoa = PhongHocModel::where('Ma_phong_hoc',$id)->get();
-        $ds_phong_hoc = PhongHocModel::all();
-        return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'thong_tin_phong_hoc_xoa'=>$thong_tin_phong_hoc_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_phong_hoc_xoa = PhongHocModel::where('Ma_phong_hoc',$id)->get();
+            $ds_phong_hoc = PhongHocModel::all();
+            return view ('quan-ly-phong-hoc',['ds_phong_hoc'=>$ds_phong_hoc,'thong_tin_phong_hoc_xoa'=>$thong_tin_phong_hoc_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinPhongHoc($request){

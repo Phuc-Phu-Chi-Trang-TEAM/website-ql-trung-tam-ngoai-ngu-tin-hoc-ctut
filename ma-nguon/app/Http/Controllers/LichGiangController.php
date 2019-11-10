@@ -10,11 +10,17 @@ use App\LichHocModel;
 class LichGiangController extends Controller
 {
     public function hienThi(){
-        $ds_giao_vien = GiaoVienModel::all();
-        $ds_chuyen_nganh = ChuyenNganhModel::all();
-
-        return view('xem-lich-giang',['ds_giao_vien'=>$ds_giao_vien,
-                                    'ds_chuyen_nganh'=>$ds_chuyen_nganh]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_giao_vien = GiaoVienModel::all();
+            $ds_chuyen_nganh = ChuyenNganhModel::all();
+            return view('xem-lich-giang',['ds_giao_vien'=>$ds_giao_vien,
+                                    'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                    'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function loadCbxGiaoVien($ma_chuyen_nganh){
@@ -46,17 +52,24 @@ class LichGiangController extends Controller
     }
 
     public function layDSLichGiang(Request $request){
-        if ($request->btn_xem){
-            $thang = $request->thang;
-            $nam = $request->nam;
-            $ma_giao_vien = $request->ma_giao_vien;
-
-            $lich_giang = LichHocModel::layDSLichGiang($thang, $nam, $ma_giao_vien);
-            $ds_giao_vien = GiaoVienModel::all();
-            $ds_chuyen_nganh = ChuyenNganhModel::all();
-            return view('xem-lich-giang',['ds_giao_vien'=>$ds_giao_vien,
-                                        'ds_chuyen_nganh'=>$ds_chuyen_nganh,
-                                        'lich_giang'=>$lich_giang]);
+        $username = session()->get('username');
+        if (isset($username)){
+            if ($request->btn_xem){
+                $thang = $request->thang;
+                $nam = $request->nam;
+                $ma_giao_vien = $request->ma_giao_vien;
+    
+                $lich_giang = LichHocModel::layDSLichGiang($thang, $nam, $ma_giao_vien);
+                $ds_giao_vien = GiaoVienModel::all();
+                $ds_chuyen_nganh = ChuyenNganhModel::all();
+                return view('xem-lich-giang',['ds_giao_vien'=>$ds_giao_vien,
+                                            'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                            'lich_giang'=>$lich_giang,
+                                            'username'=>$username]);
+            }
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
         }
     }
 }

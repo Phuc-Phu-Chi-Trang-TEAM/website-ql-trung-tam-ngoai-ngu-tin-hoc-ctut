@@ -69,8 +69,9 @@
                         @foreach ($thong_tin_nguoi_dung_xoa as $ttndx)
                             <table width="650px">
                                 <tr>
-                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
-                                        Bạn có chắc chắn muốn xóa người dùng này ?
+                                    <div class="tt" style="font-size:20px; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa phòng học này ?<br>
+                                        <span style="color:red; font-size:12px"><i>(Cảnh báo: Bạn đang sắp xóa một tài khoản người dùng khỏi hệ thống. Hãy cân nhắc trước khi thực hiện điều này)</i></span>
                                     </div>
                                 </tr>
                                 <tr>

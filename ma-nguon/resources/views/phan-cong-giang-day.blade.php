@@ -16,7 +16,7 @@
                 {{session('thongbao')}}
             </div>
         @endif
-        <div class="title ui-widget-header ui-corner-all">Quản lý học viên</div>
+        <div class="title ui-widget-header ui-corner-all">Phân công giảng dạy</div>
           <form action="phan-cong-giang-day" method="post">
             <input type="hidden" name="_token" value={{csrf_token()}}>
             <div id="nen">

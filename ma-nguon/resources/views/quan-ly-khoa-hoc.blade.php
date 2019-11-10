@@ -57,8 +57,9 @@
                         @foreach ($thong_tin_khoa_hoc_xoa as $ttkhx)
                             <table width="650px">
                                 <tr>
-                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
-                                        Bạn có chắc chắn muốn xóa khóa học này ?
+                                    <div class="tt" style="font-size:20px; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa khóa học này ?<br>
+                                        <span style="color:red; font-size:12px"><i>(Cảnh báo: Việc xóa dữ liệu này có thể khiến các dữ liệu quan trọng liên quan bị mất bao gồm các dữ liệu lớp học, dữ liệu lịch giảng dạy. Hãy cân nhắc trước khi thực hiện điều này)</i></span>
                                     </div>
                                 </tr>
                                 <tr>
@@ -69,7 +70,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Tên khóa học <span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Tên khóa học</label></td>
                                         <td width="400" ><input type="text" name="ten_khoa_hoc" class="input1" value="{{$ttkhx->Ten_khoa_hoc}}" readonly/></td>
                                     </div>
                                 </tr>

@@ -9,10 +9,17 @@ use App\ChuyenNganhModel;
 class GiaoVienController extends Controller
 {
     protected function layDanhSachGiaoVien(){
-        $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
-        $ds_chuyen_nganh = ChuyenNganhModel::all();
-        return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,
-                                        'ds_chuyen_nganh'=>$ds_chuyen_nganh]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
+            $ds_chuyen_nganh = ChuyenNganhModel::all();
+            return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,
+                                            'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -66,24 +73,42 @@ class GiaoVienController extends Controller
     }
     
     protected function layThongTinGiaoVien($id){
-        $thong_tin_giao_vien = GiaoVienModel::layTTGiaoVien($id);
-        $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
-        $ds_chuyen_nganh = ChuyenNganhModel::all();
-        return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,
-                                        'thong_tin_giao_vien'=>$thong_tin_giao_vien,
-                                        'ds_chuyen_nganh'=>$ds_chuyen_nganh]);
+        if (isset($username)){
+            $thong_tin_giao_vien = GiaoVienModel::layTTGiaoVien($id);
+            $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
+            $ds_chuyen_nganh = ChuyenNganhModel::all();
+            return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,
+                                            'thong_tin_giao_vien'=>$thong_tin_giao_vien,
+                                            'ds_chuyen_nganh'=>$ds_chuyen_nganh,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function chiTietGiaoVien($id){
-        $chi_tiet_giao_vien = GiaoVienModel::layTTGiaoVien($id);
-        $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
-        return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,'chi_tiet_giao_vien'=>$chi_tiet_giao_vien]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $chi_tiet_giao_vien = GiaoVienModel::layTTGiaoVien($id);
+            $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
+            return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,'chi_tiet_giao_vien'=>$chi_tiet_giao_vien,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinGiaoVienCanXoa($id){
-        $thong_tin_giao_vien_xoa = GiaoVienModel::where('Ma_giao_vien',$id)->get();
-        $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
-        return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,'thong_tin_giao_vien_xoa'=>$thong_tin_giao_vien_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_giao_vien_xoa = GiaoVienModel::where('Ma_giao_vien',$id)->get();
+            $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
+            return view ('quan-ly-giao-vien',['ds_giao_vien'=>$ds_giao_vien,'thong_tin_giao_vien_xoa'=>$thong_tin_giao_vien_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinGiaoVien($request){

@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Giá tiền<span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Giá tiền</label></td>
                                         <td width="400" ><input type="text" name="gia_tien" class="input1" value="{{$ttcc->Gia_tien}}"/></td>
                                     </div>
                                 </tr>
@@ -63,8 +63,9 @@
                         @foreach ($thong_tin_chung_chi_xoa as $ttccx)
                             <table width="650px">
                                 <tr>
-                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
-                                        Bạn có chắc chắn muốn xóa chứng chỉ này ?
+                                    <div class="tt" style="font-size:20px; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa chứng chỉ này ?<br>
+                                        <span style="color:red; font-size:12px"><i>(Cảnh báo: Việc xóa dữ liệu này có thể khiến các dữ liệu quan trọng liên quan bị mất bao gồm các dữ liệu lớp học, dữ liệu lịch giảng dạy. Hãy cân nhắc trước khi thực hiện điều này)</i></span>
                                     </div>
                                 </tr>
                                 <tr>
@@ -75,7 +76,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Tên Chứng Chỉ <span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Tên Chứng Chỉ</label></td>
                                         <td width="400" ><input type="text" name="ten_chung_chi" class="input1" value="{{$ttccx->Ten_chung_chi}}" readonly/></td>
                                     </div>
                                 </tr>
@@ -99,7 +100,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Giá tiền<span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Giá tiền</label></td>
                                         <td width="400" ><input type="text" name="gia_tien" class="input1"/></td>
                                     </div>
                                 </tr>

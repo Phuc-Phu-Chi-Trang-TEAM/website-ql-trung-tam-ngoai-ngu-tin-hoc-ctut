@@ -135,8 +135,9 @@
                         @foreach ($thong_tin_hoc_vien_xoa as $tthvx)
                             <table width="650px">
                                 <tr>
-                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
-                                        Bạn có chắc chắn muốn xóa học viên này ?
+                                    <div class="tt" style="font-size:20px; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa học viên này ?<br>
+                                        <span style="color:red; font-size:12px"><i>(Cảnh báo: Bạn đang sắp xóa vĩnh viễn một học viên khỏi hệ thống. Hãy cân nhắc trước khi thực hiện điều này)</i></span>
                                     </div>
                                 </tr>
                                 <tr>
@@ -147,7 +148,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Tên học viên<span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Tên học viên</label></td>
                                         <td width="400" ><input type="text" name="ten_hoc_vien" class="input1" value="{{$tthvx->Ten_hoc_vien}}" readonly/></td>
                                     </div>
                                 </tr>

@@ -119,8 +119,9 @@
                         @foreach ($thong_tin_giao_vien_xoa as $ttgvx)
                             <table width="650px">
                                 <tr>
-                                    <div class="tt" style="font-size:20px; color:red; margin-top:10px;margin-bottom:10px">
-                                        Bạn có chắc chắn muốn xóa giáo viên này ?
+                                    <div class="tt" style="font-size:20px; margin-top:10px;margin-bottom:10px">
+                                        Bạn có chắc chắn muốn xóa giáo viên này ?<br>
+                                        <span style="color:red; font-size:12px"><i>(Cảnh báo: Việc xóa dữ liệu này có thể khiến các dữ liệu quan trọng liên quan bị mất bao gồm các dữ liệu lớp học, dữ liệu lịch giảng dạy. Hãy cân nhắc trước khi thực hiện điều này)</i></span>
                                     </div>
                                 </tr>
                                 <tr>
@@ -131,7 +132,7 @@
                                 </tr>
                                 <tr>
                                     <div class="tt">
-                                        <td widht="200"><label for="nn">Tên giáo viên<span style="color:red">*</span></label></td>
+                                        <td widht="200"><label for="nn">Tên giáo viên</label></td>
                                         <td width="400" ><input type="text" name="ten_giao_vien" class="input1" value="{{$ttgvx->Ten_giao_vien}}" readonly/></td>
                                     </div>
                                 </tr>

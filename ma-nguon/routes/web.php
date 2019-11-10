@@ -12,14 +12,11 @@
 */
 
 //Routes đăng nhập
-Route::get('dang-nhap', function () {
-    return view('dang-nhap');
-});
+Route::get('dang-nhap', 'NguoiDungController@hienThiDangNhap');
+Route::post('dang-nhap','NguoiDungController@dangNhap');
 
 //Routes trang chủ
-Route::get('trang-chu', function () {
-    return view('trang-chu');
-});
+Route::get('trang-chu', 'NguoiDungController@hienThiTrangChu');
 
 //Routes quản lý người dùng
 Route::get('quan-ly-nguoi-dung', 'NguoiDungController@layDanhSachNguoiDung');
@@ -93,3 +90,6 @@ Route::get('quan-ly-giao-vien/xem-chi-tiet/{id}', 'GiaoVienController@chiTietGia
 Route::get('quan-ly-giao-vien/delete/{id}', 'GiaoVienController@layThongTinGiaoVienCanXoa');
 Route::post('quan-ly-giao-vien','GiaoVienController@batSuKienClickButton');
 Route::get('ds-giao-vien/ajax-tu-khoa/{tu_khoa}', 'GiaoVienController@timKiemGV');
+
+//Routes đăng xuất
+Route::get('dang-xuat', 'NguoiDungController@dangXuat');

@@ -11,10 +11,17 @@ use App\LopHocModel;
 class HocVienController extends Controller
 {
     protected function layDanhSachHocVien(){
-        $ds_chung_chi = ChungChiModel::all();
-        $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
-        return view ('dang-ky-hoc-vien',['ds_chung_chi'=>$ds_chung_chi,
-                                        'ds_lop_hoc'=>$ds_lop_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $ds_chung_chi = ChungChiModel::all();
+            $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
+            return view ('dang-ky-hoc-vien',['ds_chung_chi'=>$ds_chung_chi,
+                                            'ds_lop_hoc'=>$ds_lop_hoc,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function batSuKienClickButton(Request $request){
@@ -146,23 +153,42 @@ class HocVienController extends Controller
     }
     
     protected function layThongTinHocVien($id){
-        $thong_tin_hoc_vien = HocVienModel::layThongTinHocVien($id);
-        $ds_chung_chi = ChungChiModel::all();
-        $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
-        return view ('dang-ky-hoc-vien',['thong_tin_hoc_vien'=>$thong_tin_hoc_vien,
-                                        'ds_chung_chi'=>$ds_chung_chi,
-                                        'ds_lop_hoc'=>$ds_lop_hoc]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_hoc_vien = HocVienModel::layThongTinHocVien($id);
+            $ds_chung_chi = ChungChiModel::all();
+            $ds_lop_hoc = LopHocModel::layDSLopHocChuaKetThuc();
+            return view ('dang-ky-hoc-vien',['thong_tin_hoc_vien'=>$thong_tin_hoc_vien,
+                                            'ds_chung_chi'=>$ds_chung_chi,
+                                            'ds_lop_hoc'=>$ds_lop_hoc,
+                                            'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function chiTietHocVien($id){
-        $chi_tiet_hoc_vien = HocVienModel::layThongTinHocVien($id);
-        return view ('dang-ky-hoc-vien',['chi_tiet_hoc_vien'=>$chi_tiet_hoc_vien]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $chi_tiet_hoc_vien = HocVienModel::layThongTinHocVien($id);
+            return view ('dang-ky-hoc-vien',['chi_tiet_hoc_vien'=>$chi_tiet_hoc_vien,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function layThongTinHocVienCanXoa($id){
-        $thong_tin_hoc_vien_xoa = HocVienModel::where('Ma_hoc_vien',$id)->get();
-        $ds_hoc_vien = HocVienModel::all();
-        return view ('dang-ky-hoc-vien',['ds_hoc_vien'=>$ds_hoc_vien,'thong_tin_hoc_vien_xoa'=>$thong_tin_hoc_vien_xoa]);
+        $username = session()->get('username');
+        if (isset($username)){
+            $thong_tin_hoc_vien_xoa = HocVienModel::where('Ma_hoc_vien',$id)->get();
+            $ds_hoc_vien = HocVienModel::all();
+            return view ('dang-ky-hoc-vien',['ds_hoc_vien'=>$ds_hoc_vien,'thong_tin_hoc_vien_xoa'=>$thong_tin_hoc_vien_xoa,'username'=>$username]);
+        }
+        else{
+            return redirect('dang-nhap')->with('thongbao','Bạn chưa đăng nhập');
+        }
     }
 
     protected function capNhatThongTinHocVien($request){

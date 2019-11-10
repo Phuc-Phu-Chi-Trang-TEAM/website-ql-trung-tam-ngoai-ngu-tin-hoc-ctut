@@ -9,6 +9,7 @@ DANH SACH CAC MODULE DA HOAN THANH
 8. Xem lich giang.
 9. Quan ly hoc vien.
 10. Quan ly giao vien.
+11. Đăng nhập - đăng xuất.
 
 
 
@@ -200,4 +201,11 @@ Nguoi thuc hien:Nguyen Hoang Phuc
 Thoi gian: 17:15 10/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh module quan ly giao vien
+-----------------------------------------------------------------
+Lan 26:
+Ten commit: bakup lan 26
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 02:50 11/11/2019
+Noi dung da thuc hien tren du an:
+	---Hoan thanh toan bo chuc nang. Cho test lan cuoi
 -----------------------------------------------------------------

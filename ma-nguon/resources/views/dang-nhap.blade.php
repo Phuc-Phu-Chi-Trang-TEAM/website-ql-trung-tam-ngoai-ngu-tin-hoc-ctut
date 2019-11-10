@@ -32,18 +32,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--//header-->
 		<!--main-->
 		<div class="main-w3layouts-agileinfo">
-	           <!--form-stars-here-->
+			   <!--form-stars-here-->
+			   	@if (session('thongbao'))
+                	<p style="text-align:center;font-size:17px;color:red">{{session('thongbao')}}</p>
+        		@endif
 						<div class="wthree-form">
+							
 							<h2>Đăng nhập</h2>
-							<form action="#" method="post">
+							<form action="dang-nhap" method="post">
+								<input type="hidden" name="_token" value={{csrf_token()}}>
 								<div class="form-sub-w3">
-									<input type="text" name="Username" placeholder="Tài khoản " required="" />
+									<input type="text" name="ten_dang_nhap" placeholder="Tên đăng nhập " required="" />
 								<div class="icon-w3">
 									<i class="fa fa-user" aria-hidden="true"></i>
 								</div>
 								</div>
 								<div class="form-sub-w3">
-									<input type="password" name="Password" placeholder="Mật khẩu" required="" />
+									<input type="password" name="mat_khau" placeholder="Mật khẩu" required="" />
 								<div class="icon-w3">
 									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 								</div>
@@ -66,7 +71,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--//main-->
 		<!--footer-->
 		<div class="footer">
-			<p>&copy; 2017 Glassy Login Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			<p>&copy; 2019 Trung tâm ngoại ngữ - tin học | Design by Phúc-Phúc-Chí-Trang Team</p>
 		</div>
 		<!--//footer-->
 </body>
