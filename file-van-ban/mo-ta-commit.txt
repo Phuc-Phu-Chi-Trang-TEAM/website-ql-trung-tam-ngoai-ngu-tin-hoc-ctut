@@ -209,3 +209,25 @@ Thoi gian: 02:50 11/11/2019
 Noi dung da thuc hien tren du an:
 	---Hoan thanh toan bo chuc nang. Cho test lan cuoi
 -----------------------------------------------------------------
+Lan 27:
+Ten commit: bakup lan 27
+Nguoi thuc hien:Nguyen Hoang Phuc
+Thoi gian: 02:50 11/11/2019
+Noi dung da thuc hien tren du an:
+	---cap nhat ban csdl lan cuoi
+	---cap nhat ban ma nguon lan cuoi sau khi kiem tra cac module
+
+Danh sach cac module da duoc kiem tra lai
+1. Quan ly nguoi dung
+2. Quan ly buoi hoc
+3. Quan ly phong hoc
+4. Quan ly chung chi
+5. Quản lý khoa học
+6. Quan ly giao vien.
+7. Quan ly lop hoc.
+8. Dang ky hoc vien.
+9. Phan cong giang day.
+10. Xem lịch giảng.
+11. Dang nhap.
+
+-----------------------------------------------------------------

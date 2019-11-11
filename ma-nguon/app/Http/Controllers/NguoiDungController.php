@@ -53,8 +53,8 @@ class NguoiDungController extends Controller
         );
 
         $nguoi_dung = new User;
-        $nguoi_dung->username = $request->username;
-        $nguoi_dung->password = bcrypt($request->password);
+        $nguoi_dung->username = $request->ten_dang_nhap;
+        $nguoi_dung->password = bcrypt($request->mat_khau);
         $nguoi_dung->quyen = $request->quyen;
         $nguoi_dung->save();
     }
@@ -98,8 +98,8 @@ class NguoiDungController extends Controller
         );
 
         $nguoi_dung=User::where('Ma_nguoi_dung','=',$request->ma_nguoi_dung)->first();
-        $nguoi_dung->username = $request->username;
-        $nguoi_dung->password = bcrypt($request->password);
+        $nguoi_dung->username = $request->ten_dang_nhap;
+        $nguoi_dung->password = bcrypt($request->mat_khau);
         $nguoi_dung->quyen = $request->quyen;
         $nguoi_dung->save();
     }
@@ -110,7 +110,13 @@ class NguoiDungController extends Controller
     }
 
     public function hienThiDangNhap(){
-        return view('dang-nhap');
+        $username = session()->get('username');
+        if (isset($username)){
+            return redirect('trang-chu')->with('thongbao','Bạn đã đăng nhập');
+        }
+        else{
+            return view('dang-nhap');
+        }
     }
 
     public function hienThiTrangChu(){

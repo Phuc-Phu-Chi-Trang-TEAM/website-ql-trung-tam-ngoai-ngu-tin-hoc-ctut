@@ -58,4 +58,10 @@ class GiaoVienModel extends Model
 
         return $data;
     }
+
+    public static function xoaGiaoVien($ma_giao_vien){
+        DB::table('giao_vien')
+        ->where('Ma_giao_vien',$ma_giao_vien)
+        ->delete();
+    }
 }

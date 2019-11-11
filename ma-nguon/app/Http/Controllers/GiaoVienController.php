@@ -73,6 +73,7 @@ class GiaoVienController extends Controller
     }
     
     protected function layThongTinGiaoVien($id){
+        $username = session()->get('username');
         if (isset($username)){
             $thong_tin_giao_vien = GiaoVienModel::layTTGiaoVien($id);
             $ds_giao_vien = GiaoVienModel::layDSGiaoVien();
@@ -144,8 +145,7 @@ class GiaoVienController extends Controller
     }
 
     protected function xoaGiaoVien($request){
-        $giao_vien=GiaoVienModel::where('Ma_giao_vien','=',$request->ma_giao_vien)->first();
-        $giao_vien->delete();
+        GiaoVienModel::xoaGiaoVien($request->ma_giao_vien);
     }
 
     public function timKiemGV($tu_khoa){

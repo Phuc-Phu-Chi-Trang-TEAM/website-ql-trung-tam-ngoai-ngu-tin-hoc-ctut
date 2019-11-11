@@ -34,7 +34,7 @@
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Tên đăng nhập<span style="color:red">*</span></label></td>
-                                        <td width="400" ><input type="text" name="ten_dang_nhap" class="input1" value="{{$ttnd->Ten_dang_nhap}}"/></td>
+                                        <td width="400" ><input type="text" name="ten_dang_nhap" class="input1" value="{{$ttnd->username}}"/></td>
                                     </div>
                                 </tr>
                                 <tr>
@@ -83,7 +83,7 @@
                                 <tr>
                                     <div class="tt">
                                         <td widht="200"><label for="nn">Tên đăng nhập</label></td>
-                                        <td width="400" ><input type="text" name="ten_dang_nhap" class="input1" value="{{$ttndx->Ten_dang_nhap}}" readonly/></td>
+                                        <td width="400" ><input type="text" name="ten_dang_nhap" class="input1" value="{{$ttndx->username}}" readonly/></td>
                                     </div>
                                 </tr>
                                 <tr>
@@ -155,8 +155,8 @@
                                 @foreach ($ds_nguoi_dung as $dsnd)
                                     <tr class="gradeC odd" align="center" role="row">
                                         <td class="sorting_1">{{$dsnd->Ma_nguoi_dung}}</td>
-                                        <td>{{$dsnd->Ten_dang_nhap}}</td>
-                                        <td style="width: 200px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical;">{{$dsnd->Mat_khau}}</td>
+                                        <td>{{$dsnd->username}}</td>
+                                        <td style="width: 200px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical;">{{$dsnd->password}}</td>
                                         <td>{{$dsnd->Quyen}}</td>
                                         <td class="center"><i class="icon-trash"></i><a href="quan-ly-nguoi-dung/delete/{{$dsnd->Ma_nguoi_dung}}"> Xóa</a></td>
                                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="quan-ly-nguoi-dung/{{$dsnd->Ma_nguoi_dung}}">Sửa</a></td>
