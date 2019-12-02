@@ -55,6 +55,7 @@ class LichGiangController extends Controller
         $username = session()->get('username');
         if (isset($username)){
             if ($request->btn_xem){
+
                 $thang = $request->thang;
                 $nam = $request->nam;
                 $ma_giao_vien = $request->ma_giao_vien;
